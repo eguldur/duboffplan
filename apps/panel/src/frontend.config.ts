@@ -2,13 +2,13 @@ export const config = {
   apiUrl: 'http://localhost:3000/',
   wsUrl: 'http://localhost:3000/',
   siteKey: '0x4AAAAAAAeqwbWTF4HdKbZK',
-  projectTitle: 'VRSIS Default Project',
-  projectDescription: 'Template project for fast app development',
+  projectTitle: 'Dubai Offplan Projects',
+  projectDescription: 'Dubai Offplan Projects',
   //AUTH
   auth: {
     signup: true,
-    authtitle: '<div>VRSIS</div><div>Default Project</div>',
-    authdescription: 'Template project for fast app development',
+    authtitle: '<div>Dubai </div><div>Offplan Projects</div>',
+    authdescription: 'Discover Premium Off-Plan Properties in Dubai: Your Gateway to Exclusive Real Estate Investments',
   },
   //Base Components
   baseComponents: {

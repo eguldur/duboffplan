@@ -15,6 +15,8 @@ import { AdminModule } from './admin/admin.module';
 import { Context } from 'graphql-ws';
 import { JwtService } from '@nestjs/jwt';
 import { InAppNotificationsModule } from './in-app-notifications/in-app-notifications.module';
+import { SettingsModule } from './settings/settings.module';
+import { FileserverModule } from './fileserver/fileserver.module';
 
 const jwt = new JwtService();
 
@@ -92,6 +94,8 @@ const jwt = new JwtService();
     AuthModule,
     AdminModule,
     InAppNotificationsModule,
+    SettingsModule,
+    FileserverModule
   ],
 })
 export class AppModule {}

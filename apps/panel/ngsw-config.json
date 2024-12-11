@@ -5,6 +5,10 @@
     {
       "name": "app",
       "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreSearch": true
+      },
       "resources": {
         "files": [
           "/favicon.ico",
