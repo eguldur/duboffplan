@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("6759bcf06ac91aceb7f0fb27"),
+    "__v" : NumberInt(0),
+    "address" : "1st Floor, Curve Building, Sheikh Zayed Rd, Dubai, UAE\n",
+    "createdAt" : ISODate("2024-12-11T16:25:37.303+0000"),
+    "dldId" : NumberInt(583239),
+    "email" : "info@kingfield.com",
+    "isActive" : true,
+    "mobile" : null,
+    "phone" : "+97143830999",
+    "title" : "KINGFIELD OWNER ASSOCIATION MANAGEMENT SERVICES",
+    "type" : "mcompany",
+    "updatedAt" : ISODate("2024-12-11T16:25:37.303+0000")
+}

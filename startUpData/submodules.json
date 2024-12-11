@@ -82,3 +82,111 @@
     "type" : "basic",
     "updatedAt" : ISODate("2024-10-27T20:46:41.938+0000")
 }
+{
+    "_id" : ObjectId("6759ac6b2fe2feafa8db3659"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:15:13.394+0000"),
+    "isActive" : true,
+    "link" : "/settings/socialmediaplatforms",
+    "siraNo" : NumberInt(1),
+    "title" : "Sosyal Medya Platformları",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:15:13.394+0000")
+}
+{
+    "_id" : ObjectId("6759ac822fe2feafa8db3672"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:15:27.526+0000"),
+    "isActive" : true,
+    "link" : "/settings/phonetypes",
+    "siraNo" : NumberInt(2),
+    "title" : "Telefon Türleri",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:15:27.526+0000")
+}
+{
+    "_id" : ObjectId("6759ac902fe2feafa8db368c"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:15:56.925+0000"),
+    "isActive" : true,
+    "link" : "/settings/propertytypes",
+    "siraNo" : NumberInt(3),
+    "title" : "Birim Tipleri",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:42:56.226+0000")
+}
+{
+    "_id" : ObjectId("6759acb02fe2feafa8db36a7"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:16:22.612+0000"),
+    "isActive" : true,
+    "link" : "/settings/usagetypes",
+    "siraNo" : NumberInt(4),
+    "title" : "Kullanım Tipleri",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:16:22.612+0000")
+}
+{
+    "_id" : ObjectId("6759acc72fe2feafa8db36c3"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:17:36.414+0000"),
+    "isActive" : true,
+    "link" : "/settings/buildingtypes",
+    "siraNo" : NumberInt(5),
+    "title" : "Yapı Türleri",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:17:36.414+0000")
+}
+{
+    "_id" : ObjectId("6759b1ab14e57f394cd32183"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "createdAt" : ISODate("2024-12-11T15:37:30.777+0000"),
+    "isActive" : true,
+    "link" : "/settings/unvans",
+    "siraNo" : NumberInt(6),
+    "title" : "Ünvanlar",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:37:30.777+0000")
+}
+{
+    "_id" : ObjectId("6759b43dd29937ad5ebde7f3"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759b3c9d29937ad5ebde786"),
+    "createdAt" : ISODate("2024-12-11T15:48:38.310+0000"),
+    "isActive" : true,
+    "link" : "/developers/developer",
+    "siraNo" : NumberInt(1),
+    "title" : "Developerlar",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:48:38.310+0000")
+}
+{
+    "_id" : ObjectId("6759b458d29937ad5ebde80c"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759b403d29937ad5ebde792"),
+    "createdAt" : ISODate("2024-12-11T15:49:02.726+0000"),
+    "isActive" : true,
+    "link" : "/projects/project",
+    "siraNo" : NumberInt(1),
+    "title" : "Projeler",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:49:02.727+0000")
+}
+{
+    "_id" : ObjectId("6759b63bd29937ad5ebde901"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("6759b5fcd29937ad5ebde8e7"),
+    "createdAt" : ISODate("2024-12-11T15:57:18.631+0000"),
+    "isActive" : true,
+    "link" : "/mcompanies/mcompany",
+    "siraNo" : NumberInt(1),
+    "title" : "Yönetim Firmaları",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-11T15:57:18.632+0000")
+}

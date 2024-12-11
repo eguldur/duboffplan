@@ -16,8 +16,26 @@
         NumberInt(1009),
         NumberInt(1010),
         NumberInt(1011),
-        NumberInt(1012)
+        NumberInt(1012),
+        NumberInt(1013),
+        NumberInt(1014),
+        NumberInt(1015),
+        NumberInt(1016),
+        NumberInt(1017),
+        NumberInt(1018),
+        NumberInt(1019),
+        NumberInt(1020),
+        NumberInt(1021),
+        NumberInt(1022),
+        NumberInt(1023),
+        NumberInt(1024),
+        NumberInt(1025),
+        NumberInt(1026),
+        NumberInt(1027),
+        NumberInt(1028),
+        NumberInt(1029),
+        NumberInt(1030)
     ],
     "title" : "Yönetici",
-    "updatedAt" : ISODate("2024-10-27T20:21:29.156+0000")
+    "updatedAt" : ISODate("2024-12-11T15:57:26.429+0000")
 }

@@ -1,0 +1,180 @@
+{
+    "_id" : ObjectId("6759b14514e57f394cd32114"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:35:40.037+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Mobil",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-11T15:35:54.396+0000")
+}
+{
+    "_id" : ObjectId("6759b14c14e57f394cd3211d"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:35:48.226+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Sabit",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-11T15:35:48.226+0000")
+}
+{
+    "_id" : ObjectId("6759b15e14e57f394cd3212e"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:36:05.878+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "title" : "Mobil - Whatsapp",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-11T15:36:05.878+0000")
+}
+{
+    "_id" : ObjectId("6759b16614e57f394cd32139"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:36:12.024+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(4),
+    "title" : "Whatsapp",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-11T15:36:12.024+0000")
+}
+{
+    "_id" : ObjectId("6759b16f14e57f394cd3214f"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:36:24.487+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Linkedin",
+    "type" : "socialmediaplatforms",
+    "updatedAt" : ISODate("2024-12-11T15:36:24.487+0000")
+}
+{
+    "_id" : ObjectId("6759b17914e57f394cd32158"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:36:30.605+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Facebook",
+    "type" : "socialmediaplatforms",
+    "updatedAt" : ISODate("2024-12-11T15:36:30.605+0000")
+}
+{
+    "_id" : ObjectId("6759b17f14e57f394cd32162"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:36:37.128+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "title" : "Instagram",
+    "type" : "socialmediaplatforms",
+    "updatedAt" : ISODate("2024-12-11T15:36:37.128+0000")
+}
+{
+    "_id" : ObjectId("6759b299d29937ad5ebde65a"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:41:19.901+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Apartment",
+    "type" : "buildingtypes",
+    "updatedAt" : ISODate("2024-12-11T15:41:19.901+0000")
+}
+{
+    "_id" : ObjectId("6759b2a0d29937ad5ebde663"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:41:25.958+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Villa",
+    "type" : "buildingtypes",
+    "updatedAt" : ISODate("2024-12-11T15:41:25.958+0000")
+}
+{
+    "_id" : ObjectId("6759b307d29937ad5ebde6f5"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:43:12.925+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Studio",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-11T15:43:24.328+0000")
+}
+{
+    "_id" : ObjectId("6759b31dd29937ad5ebde704"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:43:29.874+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Shop",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-11T15:43:29.874+0000")
+}
+{
+    "_id" : ObjectId("6759b322d29937ad5ebde70e"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:43:43.919+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "title" : "1 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-11T15:43:43.919+0000")
+}
+{
+    "_id" : ObjectId("6759b37ad29937ad5ebde73e"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:45:34.911+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Residental",
+    "type" : "usagetypes",
+    "updatedAt" : ISODate("2024-12-11T15:45:34.911+0000")
+}
+{
+    "_id" : ObjectId("6759b39fd29937ad5ebde747"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:45:42.089+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Commercial",
+    "type" : "usagetypes",
+    "updatedAt" : ISODate("2024-12-11T15:45:42.089+0000")
+}
+{
+    "_id" : ObjectId("6759b3acd29937ad5ebde76b"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:45:56.199+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "title" : "Sales Manager",
+    "type" : "unvans",
+    "updatedAt" : ISODate("2024-12-11T15:45:56.199+0000")
+}
+{
+    "_id" : ObjectId("6759b3b5d29937ad5ebde774"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:46:06.887+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(4),
+    "title" : "Project Manager",
+    "type" : "unvans",
+    "updatedAt" : ISODate("2024-12-11T15:50:24.562+0000")
+}
+{
+    "_id" : ObjectId("6759b4add29937ad5ebde879"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:50:13.110+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "title" : "Sales Officer",
+    "type" : "unvans",
+    "updatedAt" : ISODate("2024-12-11T15:50:13.110+0000")
+}
+{
+    "_id" : ObjectId("6759b4b9d29937ad5ebde884"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:50:24.393+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "title" : "Broker",
+    "type" : "unvans",
+    "updatedAt" : ISODate("2024-12-11T15:50:24.393+0000")
+}

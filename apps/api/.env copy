@@ -1,0 +1,15 @@
+MONGO_URL=mongodb://localhost:27017/duboffplan
+RECAP_SECRET_KEY=0x4AAAAAAAeqwcmc7JLJDrF7ZLAonCTBVcE
+WEB_SITE=http://localhost:4200
+WEB_API=http://localhost:3000
+MAIL_SERVER=smtp.yandex.com
+MAIL_PORT=465
+MAIL_USER=whatsapp@smartsis.com.tr
+MAIL_PASS=12smartsis34
+MAIL_FROM_NAME=SMARTSIS
+MAIL_FROM_MAIL=whatsapp@smartsis.com.tr
+JWT_SECRET_KEY=-KaPdSgVkYp3s5v8y/B?E(H+MbQeThWmZq4t7w9z$C&F)J@N697UjXn2afu8x/A%
+REDIS_HOST=185.150.130.14
+REDIS_PORT=6301
+REDIS_USERNAME=default
+REDIS_PASSWORD=2009501029

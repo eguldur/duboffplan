@@ -4,11 +4,11 @@
     "createdAt" : ISODate("2024-07-24T22:29:19.913+0000"),
     "icon" : "mat_outline:admin_panel_settings",
     "isActive" : true,
-    "siraNo" : NumberInt(3),
+    "siraNo" : NumberInt(6),
     "subtitle" : " ",
     "title" : "Sistem Yönetimi",
     "type" : "collapsable",
-    "updatedAt" : ISODate("2024-08-13T10:15:17.524+0000")
+    "updatedAt" : ISODate("2024-12-11T15:56:38.320+0000")
 }
 {
     "_id" : ObjectId("66a180e8aa8993dd221262d9"),
@@ -20,5 +20,53 @@
     "subtitle" : " ",
     "title" : "Ana Menü",
     "type" : "collapsable",
-    "updatedAt" : ISODate("2024-08-13T10:16:07.962+0000")
+    "updatedAt" : ISODate("2024-12-11T15:48:02.470+0000")
+}
+{
+    "_id" : ObjectId("6759ac5c2fe2feafa8db3642"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:14:46.315+0000"),
+    "icon" : "mat_outline:settings",
+    "isActive" : true,
+    "siraNo" : NumberInt(5),
+    "subtitle" : " ",
+    "title" : "Ayarlar",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-12-11T15:56:38.320+0000")
+}
+{
+    "_id" : ObjectId("6759b3c9d29937ad5ebde786"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:47:09.644+0000"),
+    "icon" : "mat_outline:business_center",
+    "isActive" : true,
+    "siraNo" : NumberInt(2),
+    "subtitle" : " ",
+    "title" : "Developerlar",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-12-11T15:48:02.472+0000")
+}
+{
+    "_id" : ObjectId("6759b403d29937ad5ebde792"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:47:51.635+0000"),
+    "icon" : "heroicons_outline:building-office-2",
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "subtitle" : " ",
+    "title" : "Projeler",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-12-11T15:47:51.635+0000")
+}
+{
+    "_id" : ObjectId("6759b5fcd29937ad5ebde8e7"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-11T15:56:38.317+0000"),
+    "icon" : "mat_outline:clean_hands",
+    "isActive" : true,
+    "siraNo" : NumberInt(4),
+    "subtitle" : " ",
+    "title" : "Yönetim Firmaları",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-12-11T15:56:38.317+0000")
 }
