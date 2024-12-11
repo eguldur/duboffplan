@@ -1,0 +1,84 @@
+{
+    "_id" : ObjectId("66a18087aa8993dd22126243"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:30:43.483+0000"),
+    "isActive" : true,
+    "link" : "/administration/basemodules",
+    "siraNo" : NumberInt(1),
+    "title" : "Ana Modüller",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:30:43.483+0000")
+}
+{
+    "_id" : ObjectId("66a180a1aa8993dd2212626d"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:12.338+0000"),
+    "isActive" : true,
+    "link" : "/administration/submodules",
+    "siraNo" : NumberInt(2),
+    "title" : "Alt Modüller",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:31:12.338+0000")
+}
+{
+    "_id" : ObjectId("66a180b5aa8993dd22126285"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:28.803+0000"),
+    "isActive" : true,
+    "link" : "/administration/permissions",
+    "siraNo" : NumberInt(3),
+    "title" : "İzinler",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:31:28.803+0000")
+}
+{
+    "_id" : ObjectId("66a180c7aa8993dd2212629e"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:46.116+0000"),
+    "isActive" : true,
+    "link" : "/administration/roles",
+    "siraNo" : NumberInt(4),
+    "title" : "Roller",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:31:46.116+0000")
+}
+{
+    "_id" : ObjectId("66a180d7aa8993dd221262b8"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:32:02.245+0000"),
+    "isActive" : true,
+    "link" : "/administration/users",
+    "siraNo" : NumberInt(5),
+    "title" : "Kullanıcılar",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:32:02.245+0000")
+}
+{
+    "_id" : ObjectId("66a1811eaa8993dd221262fc"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a180e8aa8993dd221262d9"),
+    "createdAt" : ISODate("2024-07-24T22:33:27.054+0000"),
+    "isActive" : true,
+    "link" : "/example",
+    "siraNo" : NumberInt(1),
+    "title" : "Genel Durum",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-07-24T22:48:34.945+0000")
+}
+{
+    "_id" : ObjectId("671ea0ad6969f051be80f5fb"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-10-27T20:21:12.926+0000"),
+    "isActive" : true,
+    "link" : "/administration/icons",
+    "siraNo" : NumberInt(6),
+    "title" : "İkonlar",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-10-27T20:46:41.938+0000")
+}

@@ -1,0 +1,23 @@
+{
+    "_id" : ObjectId("66a18162aa8993dd2212633b"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-07-24T22:34:16.990+0000"),
+    "isActive" : true,
+    "permissions" : [
+        NumberInt(1001),
+        NumberInt(1000),
+        NumberInt(1002),
+        NumberInt(1003),
+        NumberInt(1004),
+        NumberInt(1005),
+        NumberInt(1006),
+        NumberInt(1007),
+        NumberInt(1008),
+        NumberInt(1009),
+        NumberInt(1010),
+        NumberInt(1011),
+        NumberInt(1012)
+    ],
+    "title" : "Yönetici",
+    "updatedAt" : ISODate("2024-10-27T20:21:29.156+0000")
+}

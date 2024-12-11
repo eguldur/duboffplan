@@ -1,0 +1,162 @@
+<div class="w-full max-w-3xl">
+
+    <!-- Form -->
+    <form [formGroup]="securityForm">
+
+        <!-- Section -->
+        <div class="w-full">
+            <div class="text-xl">Şifrenizi Değiştirin</div>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+            <!-- Current password -->
+            <div class="sm:col-span-4">
+                <mat-form-field
+                    class="w-full"
+                   >
+                    <mat-label>Şu anki şifreniz</mat-label>
+                    <mat-icon
+                        class="icon-size-5"
+                        [svgIcon]="'heroicons_solid:key'"
+                        matPrefix></mat-icon>
+                        <input
+                        id="currentPassword"
+                        matInput
+                        type="password"
+                        [formControlName]="'currentPassword'"
+                        #currentPasswordField>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        (click)="currentPasswordField.type === 'password' ? currentPasswordField.type = 'text' : currentPasswordField.type = 'password'"
+                        matSuffix>
+                        @if (currentPasswordField.type === 'password') {
+                            <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                        }
+                          
+                        @if (currentPasswordField.type === 'text') {
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye-slash'"></mat-icon>
+                        }
+                    </button>
+                    @if (f.currentPassword.touched && f.currentPassword.invalid && f.currentPassword.value.length !== 0) {
+
+                    <mat-error >Şifreniz en az 8 karakter olmalı ve büyük harf (A), küçük harf (a), rakam (1), özel karakter (!.#$%^&*) İçermelidir</mat-error>
+                    }
+                    @if (securityForm.get('currentPassword').hasError('currentPassword')) {
+
+                    <mat-error >
+                        Şifre gerekli
+                    </mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            <!-- New password -->
+            <div class="sm:col-span-4">
+                <mat-form-field class="w-full">
+                    <mat-label>Yeni Şifre</mat-label>
+                    <input
+                        id="password"
+                        matInput
+                        type="password"
+                        [formControlName]="'password'"
+                        #passwordField>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
+                        matSuffix>
+                        @if (passwordField.type === 'password') {
+                            <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                        }
+                          
+                        @if (passwordField.type === 'text') {
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye-slash'"></mat-icon>
+                        }
+                       
+                    </button>
+                    @if (f.password.touched && f.password.invalid && f.password.value.length !== 0) {
+                    <mat-error>Şifreniz en az 8 karakter olmalı ve büyük harf (A), küçük harf (a), rakam (1), özel karakter (!.#$%^&*) İçermelidir</mat-error>
+                    }
+                    @if (securityForm.get('password').hasError('required')) {
+                    <mat-error >
+                        Şifre gerekli
+                    </mat-error>
+                    }
+                   
+                </mat-form-field>
+
+                <!-- Password confirm field -->
+                <mat-form-field class="w-full">
+                    <mat-label>Yeni Şifre (Tekrar)</mat-label>
+                    <input
+                        id="password-confirm"
+                        matInput
+                        type="password"
+                        [formControlName]="'passwordConfirm'"
+                        #passwordConfirmField>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        (click)="passwordConfirmField.type === 'password' ? passwordConfirmField.type = 'text' : passwordConfirmField.type = 'password'"
+                        matSuffix>
+                        @if (passwordConfirmField.type === 'password') {
+                            <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+                        }
+                          
+                        @if (passwordConfirmField.type === 'text') {
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:eye-slash'"></mat-icon>
+                        }
+                       
+                    </button>
+                    @if (f.password.touched && f.password.invalid && f.password.value.length !== 0) {
+                    <mat-error>
+                        Şifreniz en az 8 karakter olmalı ve büyük harf (A), küçük harf (a), rakam (1), özel karakter (!.#$%^&*) İçermelidir
+                      </mat-error>
+                    }
+                    @if (securityForm.get('passwordConfirm').hasError('required')) {
+                    <mat-error >
+                        Şifre gerekli
+                    </mat-error>
+                    }
+                    @if (securityForm.get('passwordConfirm').hasError('mustMatch')) {
+
+                    <mat-error >
+                        Şifreler eşleşmiyor
+                    </mat-error>
+                }
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="my-10 border-t"></div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-end">
+            <button
+                mat-stroked-button
+                type="button">
+                İptal
+            </button>
+            <button
+                class="ml-4"
+                mat-flat-button
+                [disabled]="securityForm.invalid || securityForm.pristine"
+                (click)="save()"
+                type="button"
+                [color]="'primary'">Kaydet
+            </button>
+        </div>
+    </form>
+
+</div>

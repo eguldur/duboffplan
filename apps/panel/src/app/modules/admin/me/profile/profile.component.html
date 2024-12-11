@@ -1,0 +1,93 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div class="flex flex-col shadow bg-card">
+
+        <!-- Cover image -->
+        <div>
+            <img *ngIf="!user.headerPic"
+                class="h-40 lg:h-80 object-cover"
+                src="assets/images/avatars/cover.jpg"
+                alt="Cover image">
+            <img *ngIf="user.headerPic"
+                class="h-40 lg:h-80 object-cover"
+                [src]="url + user.headerPic"
+                alt="Cover image">
+        </div>
+
+        <!-- User info -->
+        <div class="flex flex-col flex-0 lg:flex-row items-center max-w-5xl w-full mx-auto px-8 lg:h-18 bg-card">
+
+            <!-- Avatar -->
+            <div class="-mt-26 lg:-mt-22 rounded-full">
+                <img *ngIf="!user.avatar"
+                    class="w-32 h-32 rounded-full ring-4 ring-bg-card"
+                    src="assets/images/avatars/profile.jpg"
+                    alt="User avatar">
+                    <img  class="w-32 h-32 rounded-full ring-4 ring-bg-card" *ngIf="user.avatar" [src]="url + user.avatar">
+            </div>
+
+            <!-- Details -->
+            <div class="flex flex-col items-center lg:items-start mt-4 lg:mt-0 lg:ml-8">
+                <div class="text-lg font-bold leading-none">{{user.firstname}} {{user.lastname}}</div>
+                <div class="text-secondary">{{user.title}}</div>
+            </div>
+
+            <!-- Separator -->
+            <div class="hidden lg:flex h-8 mx-8 border-l-2"></div>
+
+            <!-- Stats -->
+            
+
+            <!-- Menu -->
+            <div class="flex items-center mt-8 mb-4 lg:m-0 lg:ml-auto space-x-6">
+                <a
+                    class="font-medium"
+                    [routerLink]="['./']">
+                    Anasayfa
+                </a>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+    <div class="flex flex-auto justify-center w-full max-w-5xl mx-auto p-6 sm:p-8">
+
+        <!-- Column -->
+        <div class="lg:flex flex-col w-full items-start">
+
+            <!-- About me -->
+            <fuse-card class="flex flex-col w-full p-8">
+                <div class="text-2xl font-semibold leading-tight">Hakkımda</div>
+                <div class="mt-4" style="white-space: break-spaces;">{{user.about}}</div>
+                <hr class="w-full border-t my-6">
+                <div class="flex flex-col">
+                    <div class="flex items-center">
+                        <mat-icon
+                            class="icon-size-5 mr-3"
+                            [svgIcon]="'heroicons_solid:map-pin'"></mat-icon>
+                        <span class="leading-none">{{user.address}}</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                        <mat-icon
+                            class="icon-size-5 mr-3"
+                            [svgIcon]="'heroicons_solid:device-phone-mobile'"></mat-icon>
+                        <span class="leading-none">+90 ({{user.phone?.slice(0, 3) + ') ' + user.phone?.slice(3, 6) + ' ' + user.phone?.slice(6, 8) + ' ' + user.phone?.slice(8, 10)}}</span>
+                    </div>
+                   
+                </div>
+                
+            </fuse-card>
+
+
+        </div>
+
+        <!-- Column -->
+
+
+    </div>
+
+</div>

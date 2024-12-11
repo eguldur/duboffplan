@@ -1,0 +1,143 @@
+{
+    "_id" : ObjectId("66a18093aa8993dd22126248"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:30:43.490+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1000),
+    "submodule" : ObjectId("66a18087aa8993dd22126243"),
+    "title" : "Ana Modüller Listeleme",
+    "updatedAt" : ISODate("2024-07-24T22:30:43.490+0000")
+}
+{
+    "_id" : ObjectId("66a18093aa8993dd22126250"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:30:43.500+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1001),
+    "submodule" : ObjectId("66a18087aa8993dd22126243"),
+    "title" : "Ana Modüller Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-07-24T22:30:43.500+0000")
+}
+{
+    "_id" : ObjectId("66a180b0aa8993dd22126272"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:12.345+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1002),
+    "submodule" : ObjectId("66a180a1aa8993dd2212626d"),
+    "title" : "Alt Modüller Listeleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:12.345+0000")
+}
+{
+    "_id" : ObjectId("66a180b0aa8993dd2212627b"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:12.352+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1003),
+    "submodule" : ObjectId("66a180a1aa8993dd2212626d"),
+    "title" : "Alt Modüller Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:12.352+0000")
+}
+{
+    "_id" : ObjectId("66a180c0aa8993dd2212628a"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:28.810+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1004),
+    "submodule" : ObjectId("66a180b5aa8993dd22126285"),
+    "title" : "İzinler Listeleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:28.810+0000")
+}
+{
+    "_id" : ObjectId("66a180c0aa8993dd22126294"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:28.817+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1005),
+    "submodule" : ObjectId("66a180b5aa8993dd22126285"),
+    "title" : "İzinler Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:28.817+0000")
+}
+{
+    "_id" : ObjectId("66a180d2aa8993dd221262a3"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:46.127+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1006),
+    "submodule" : ObjectId("66a180c7aa8993dd2212629e"),
+    "title" : "Roller Listeleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:46.127+0000")
+}
+{
+    "_id" : ObjectId("66a180d2aa8993dd221262ae"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:31:46.133+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1007),
+    "submodule" : ObjectId("66a180c7aa8993dd2212629e"),
+    "title" : "Roller Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-07-24T22:31:46.133+0000")
+}
+{
+    "_id" : ObjectId("66a180e2aa8993dd221262bd"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:32:02.256+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1008),
+    "submodule" : ObjectId("66a180d7aa8993dd221262b8"),
+    "title" : "Kullanıcılar Listeleme",
+    "updatedAt" : ISODate("2024-07-24T22:32:02.256+0000")
+}
+{
+    "_id" : ObjectId("66a180e2aa8993dd221262c9"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-07-24T22:32:02.262+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1009),
+    "submodule" : ObjectId("66a180d7aa8993dd221262b8"),
+    "title" : "Kullanıcılar Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-07-24T22:32:02.262+0000")
+}
+{
+    "_id" : ObjectId("66a1813baa8993dd2212630f"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a180e8aa8993dd221262d9"),
+    "createdAt" : ISODate("2024-07-24T22:33:39.694+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1010),
+    "submodule" : ObjectId("66a1811eaa8993dd221262fc"),
+    "title" : "Genel Durum",
+    "updatedAt" : ISODate("2024-07-24T22:33:39.694+0000")
+}
+{
+    "_id" : ObjectId("671ea0b86969f051be80f601"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-10-27T20:21:12.943+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1011),
+    "submodule" : ObjectId("671ea0ad6969f051be80f5fb"),
+    "title" : "İconlar Listeleme",
+    "updatedAt" : ISODate("2024-10-27T20:21:12.943+0000")
+}
+{
+    "_id" : ObjectId("671ea0b86969f051be80f60e"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("66a18037aa8993dd2212621f"),
+    "createdAt" : ISODate("2024-10-27T20:21:12.950+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1012),
+    "submodule" : ObjectId("671ea0ad6969f051be80f5fb"),
+    "title" : "İconlar Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-10-27T20:21:12.950+0000")
+}

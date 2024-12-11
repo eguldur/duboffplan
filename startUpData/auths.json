@@ -1,0 +1,23 @@
+{
+    "_id" : ObjectId("668c987a39fd6d5d890271fd"),
+    "firstname" : "Erdem",
+    "lastname" : "Güldür2",
+    "email" : "erdem@erdemguldur.com",
+    "password" : "$2b$10$GB5heGEgYwzU/TPH3NULbuMZ4xNRaEgeXrNb/YYcRDejGeYPDFE7e",
+    "isActive" : true,
+    "isEmailActive" : true,
+    "emailActivateToken" : null,
+    "emailActivateTokenDate" : null,
+    "createdAt" : ISODate("2024-07-09T01:55:06.816+0000"),
+    "updatedAt" : ISODate("2024-10-26T23:47:10.678+0000"),
+    "__v" : NumberInt(0),
+    "resetPassToken" : null,
+    "resetPassTokenDate" : null,
+    "about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.",
+    "address" : "Atatürk Mah. 915 Sokak No:158 Bornova İZMİR",
+    "avatar" : "2024/6/16/image-66080cba0e9da5abf55999498e458d09d2f51398.webp",
+    "headerPic" : "2024/6/16/image-a1353c05e217b4f8e0c92490751b5f107cd4c5d7.webp",
+    "phone" : "5320592733",
+    "title" : "Sistem Admin",
+    "role" : ObjectId("66a18162aa8993dd2212633b")
+}

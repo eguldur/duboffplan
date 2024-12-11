@@ -1,0 +1,163 @@
+<div class="w-full max-w-3xl">
+  <!-- Form -->
+  <form [formGroup]="accountForm">
+    <!-- Section -->
+    <div class="w-full">
+      <div class="text-xl">Profil</div>
+      <div class="text-secondary">Profil Bilgileriniz</div>
+    </div>
+    <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+      <div
+        (click)="changeProfilePic()"
+        class="relative flex items-center justify-center w-32 h-32 rounded-full overflow-hidden ring-4 ring-bg-card"
+      >
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                class="text-white"
+                [svgIcon]="'heroicons_outline:camera'"
+              ></mat-icon>
+            </button>
+          </div>
+        </div>
+        @if (user.avatar && changeAvatar) {
+          <img
+            class="object-cover w-full h-full"
+        
+            [src]="user.avatar"
+          />
+        }
+        @if (user.avatar && !changeAvatar) {
+          <img
+            class="object-cover w-full h-full"
+           
+            [src]="url + user.avatar"
+          />
+        }
+      </div>
+      <div
+        (click)="changeProfileHeader()"
+        class="relative flex items-center justify-center overflow-hidden ring-4 ring-bg-card sm:col-span-3 min-h-16"
+      >
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div>
+            <button mat-icon-button>
+              <mat-icon
+                class="text-white"
+                [svgIcon]="'heroicons_outline:camera'"
+              ></mat-icon>
+            </button>
+          </div>
+        </div>
+        @if (user.headerPic && changeHeaderPic) {
+          <img
+            class="object-cover w-full h-full"
+           
+            [src]="user.headerPic"
+          />
+        }
+        @if (user.headerPic && !changeHeaderPic) {
+          <img
+            class="object-cover w-full h-full"
+           
+            [src]="url + user.headerPic"
+          />
+        }
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+      <div class="sm:col-span-2">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Adınız</mat-label>
+
+          <input [formControlName]="'firstname'" matInput />
+        </mat-form-field>
+      </div>
+
+      <div class="sm:col-span-2">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Soyadınız</mat-label>
+
+          <input [formControlName]="'lastname'" matInput />
+        </mat-form-field>
+      </div>
+      <div class="sm:col-span-4">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Ünvan</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:briefcase'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'title'" matInput />
+        </mat-form-field>
+      </div>
+      <div class="sm:col-span-4">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Hakkınızda</mat-label>
+          <textarea
+            matInput
+            [formControlName]="'about'"
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="5"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-10 border-t"></div>
+
+    <!-- Section -->
+    <div class="w-full">
+      <div class="text-xl">İletişim Bilgileriniz</div>
+    </div>
+    <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+      <!-- Email -->
+
+      <div class="sm:col-span-4">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Telefon Numaranız</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:phone'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'phone'" mask="(000) 000 00 00" matInput />
+        </mat-form-field>
+      </div>
+      <div class="sm:col-span-4">
+        <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+          <mat-label>Adres</mat-label>
+          <textarea
+            matInput
+            [formControlName]="'address'"
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="2"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-11 mb-10 border-t"></div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end">
+      <button mat-stroked-button type="button">İptal</button>
+      <button
+        class="ml-4"
+        (click)="save()"
+        [disabled]="accountForm.invalid || accountForm.pristine"
+        mat-flat-button
+        type="button"
+        [color]="'primary'"
+      >
+        Kaydet
+      </button>
+    </div>
+  </form>
+</div>

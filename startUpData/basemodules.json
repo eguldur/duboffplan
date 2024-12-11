@@ -1,0 +1,24 @@
+{
+    "_id" : ObjectId("66a18037aa8993dd2212621f"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-07-24T22:29:19.913+0000"),
+    "icon" : "mat_outline:admin_panel_settings",
+    "isActive" : true,
+    "siraNo" : NumberInt(3),
+    "subtitle" : " ",
+    "title" : "Sistem Yönetimi",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-08-13T10:15:17.524+0000")
+}
+{
+    "_id" : ObjectId("66a180e8aa8993dd221262d9"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-07-24T22:32:24.651+0000"),
+    "icon" : "heroicons_outline:home",
+    "isActive" : true,
+    "siraNo" : NumberInt(1),
+    "subtitle" : " ",
+    "title" : "Ana Menü",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-08-13T10:16:07.962+0000")
+}

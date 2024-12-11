@@ -1,0 +1,112 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden" >
+  <mat-drawer-container
+    class="flex-auto h-full bg-card dark:bg-transparent"
+    (backdropClick)="onBackdropClicked()"
+    [hasBackdrop]="true"
+  >
+    <!-- Drawer -->
+    <mat-drawer
+      class="w-full md:w-160 dark:bg-gray-900"
+      [mode]="drawerMode"
+      [opened]="false"
+      [position]="'end'"
+      [disableClose]="true"
+
+      #matDrawer
+    >
+      <permission-drawer></permission-drawer>
+    </mat-drawer>
+
+    <mat-drawer-content class="flex flex-col" >
+      <div class="flex-auto" *ngIf="role$ | async as role">
+        <div
+          class="flex flex-col sm:flex-row  flex-auto justify-between py-8 px-6 md:px-8 border-b"
+        >
+
+          <!-- Title -->
+          <div class="flex flex-col flex-auto  items-start" >
+            <a
+            class="-mt-4 -ml-4 mb-4 inline-flex items-center leading-6 text-primary hover:underline"
+            [routerLink]="['/administration/roles/']">
+            <span class="inline-flex items-center">
+                <mat-icon
+                    class="icon-size-4 text-current"
+                    [svgIcon]="'heroicons_outline:arrow-small-left'"></mat-icon>
+                <span class="ml-1.5 font-medium leading-6">Geri</span>
+            </span>
+        </a>
+            <div class="text-4xl font-extrabold tracking-tight leading-none">
+              {{role.title}} Rol Ayarları
+            </div>
+            <div class="ml-0.5 font-medium text-secondary">
+              ( {{role.permissions.length}} İzin)
+           </div>
+          </div>
+          <div class="flex flex-auto items-center mt-4 sm:mt-0 sm:ml-16  md:mt-4">
+            <!-- Search -->
+            <div class="flex-auto">
+                <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded w-full min-w-50">
+                    <mat-icon
+                        class="icon-size-5"
+                        matPrefix
+                        [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
+                    <input
+                    type="search"
+                        
+                        matInput
+                        [formControl]="searchInputControl"
+                        [autocomplete]="'off'"
+                        [placeholder]="'İzinlerde Ara'">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        </div>
+        <div class="relative">
+          <ng-container *ngIf="submodules$ | async as submodules" >
+              <ng-container *ngIf="submodules.length; else noContacts">
+                  <ng-container *ngFor="let submodule of submodules; let i = index;">
+                      <!-- Group -->
+                      <ng-container *ngIf="i === 0 || submodule.basemodule.title !== submodules[i - 1].basemodule.title">
+                          <div class="z-10 sticky top-0 -mt-px px-6 py-1 md:px-8 border-t border-b font-medium uppercase text-secondary bg-gray-50 dark:bg-gray-900">
+                              {{submodule?.basemodule?.title}}
+                          </div>
+                      </ng-container>
+                      <!-- Contact -->
+                      <div
+                          class="z-20 flex flex-row justify-between items-center px-6 py-4 md:px-8 cursor-pointer border-b"
+                          [ngClass]="{'hover:bg-slate-100 dark:hover:bg-hover': !selectedSubmodule || selectedSubmodule.id !== submodule.id,
+                                      'bg-slate-200 dark:bg-hover': selectedSubmodule && selectedSubmodule.id === submodule.id}"
+                          (click)="onSubmoduleClicked(submodule)">
+
+                          <div class="min-w-0">
+                              <div class="font-medium  text-lg leading-5 truncate">{{submodule.title}}</div>
+                              <div class="leading-5 truncate text-secondary">{{submodule.basemodule.title}}</div>
+                          </div>
+                          <div  class="flex flex-row justify-between items-center ml-4 hidden md:flex">
+                            <div class="w-40 items-center flex flex-col">
+                              <div class="font-bold text-lg leading-5 text-slate-500 truncate">{{submodule.permissions.length}}</div>
+                              <div class="leading-2 truncate text-secondary">Toplam İzin</div>
+                            </div>
+                            <div class="w-40 items-center flex flex-col hidden md:flex">
+                              <div class="font-bold text-lg leading-5 text-slate-800 truncate">{{countIzin(submodule)}}</div>
+                              <div class="leading-2 truncate text-secondary">Verilen İzin</div>
+                            </div>
+                        </div>
+
+                      </div>
+                  </ng-container>
+              </ng-container>
+          </ng-container>
+
+          <!-- No contacts -->
+          <ng-template #noContacts>
+              <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">Kayıt Bulunamadı!</div>
+          </ng-template>
+
+      </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
