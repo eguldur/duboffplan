@@ -13,6 +13,7 @@ import {
   provideRouter,
   withInMemoryScrolling,
   withPreloading,
+  withRouterConfig,
 } from '@angular/router';
 import { provideFuse } from '@fuse';
 import { TranslocoService, provideTransloco } from '@ngneat/transloco';
@@ -72,6 +73,9 @@ export const appConfig: ApplicationConfig = {
       appRoutes,
       withPreloading(PreloadAllModules),
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
+      withRouterConfig({
+        onSameUrlNavigation: 'reload'
+      }),
     ),
 
     // Material Date Adapter

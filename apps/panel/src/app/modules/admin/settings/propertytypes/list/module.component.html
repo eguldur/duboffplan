@@ -1,0 +1,200 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+  <mat-drawer-container class="flex-auto h-full">
+    <mat-drawer class="w-72 bg-gray-100" [autoFocus]="false"  [mode]="drawerMode" [opened]="drawerOpened" #matDrawer>
+      <settings-propertytypes-sidebar></settings-propertytypes-sidebar>
+    </mat-drawer>
+
+    <mat-drawer-content class="flex flex-col overflow-hidden">
+      <div class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 border-b bg-card dark:bg-transparent">
+        <div class="flex flex-row min-w-0 items-center justify-between">
+          <button [ngStyle]="{ transform: matDrawer.opened ? 'rotate(0deg)' : 'rotate(180deg)' }" mat-icon-button (click)="matDrawer.toggle()">
+            <mat-icon [svgIcon]="'menu_open'"></mat-icon>
+          </button>
+
+          <h2 class="text-3xl font-extrabold tracking-tight leading-7 truncate">
+            {{ title }}
+          </h2>
+        </div>
+        <div class="flex shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+          <mat-form-field  *ngIf="moduleConfig.searchBox" class="fuse-mat-dense fuse-mat-rounded min-w-64" [subscriptSizing]="'dynamic'">
+            <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
+            <input type="search"  matInput [formControl]="searchInputControl" [autocomplete]="'off'" [placeholder]="'Ara'" />
+          </mat-form-field>
+          <button class="ml-4" *ngIf="moduleConfig.addNew && canCopy" mat-flat-button [color]="'primary'" (click)="createItem()">
+            <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+            <span class="ml-2 mr-1">Ekle</span>
+          </button>
+          <button class="ml-4" *ngIf="moduleConfig.addMulti && canCopy" mat-flat-button [color]="'primary'" (click)="openMultiAddDialogComponent()">
+            <mat-icon [svgIcon]="'mat_outline:library_add'"></mat-icon>
+            <span class="ml-2 mr-1">Çoklu Ekle</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-auto overflow-hidden">
+        <div class="flex flex-col flex-auto sm:mb-18 bg-card  overflow-y-auto">
+          <ng-container *ngIf="items$ | async as items">
+            <div class="grid">
+              <!-- Header -->
+              <div
+                class="{{ moduleConfig.type + '-' + moduleConfig.type2 }}-grid z-10 sticky top-0 grid gap-2 py-2 px-3 min-h-11 shadow text-md font-semibold text-secondary bg-gray-50 dark:bg-black dark:bg-opacity-5"
+                matSort
+                matSortDisableClear
+              >
+
+              <div>
+
+                <mat-checkbox *ngIf="!selectedItem" (change)="$event ? toggleAllRows() : null"
+                              [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+              </div>
+                <div [mat-sort-header]="'title'">Tanım</div>
+                <div [mat-sort-header]="'siraNo'">Sıra No</div>
+                <div [mat-sort-header]="'isActive'">Aktif</div>
+                <div></div>
+
+              </div>
+              <!-- Rows -->
+              <ng-container *ngIf="items.length > 0; else noItems">
+                <ng-container *ngIf="items$ | async as items">
+                  <ng-container *ngFor="let item of items; trackBy: trackByFn">
+
+                    <div
+                      class="{{ moduleConfig.type + '-' + moduleConfig.type2 }}-grid grid items-center gap-2 py-2 px-3  border-b"
+                      [ngClass]="
+                        selectedItem?.id === item.id
+                          ?  moduleConfig.type + '-' + moduleConfig.type2 + '-grid grid items-center gap-2 py-2 px-3  border-b bg-slate-200'
+                          :  moduleConfig.type + '-' + moduleConfig.type2 + '-grid grid items-center gap-2 py-2 px-3 border-b'
+                      "
+                    >
+                    
+                    <div class="pt-1" >
+                      <mat-checkbox *ngIf="!selectedItem" (click)="$event.stopPropagation()"
+                                    (change)="$event ? selection.toggle(item.id) : null"
+                                    [checked]="selection.isSelected(item.id)">
+                      </mat-checkbox>
+                    </div>
+                      <div class="truncate">
+                        {{ item.title }}
+                      </div>
+                      <!-- il 
+                      <div class="truncate">
+                        {{ item.basekat?.title }}
+                      </div>
+                     -->
+                      <div class="truncate">
+                        {{ item.siraNo }}
+                      </div>
+                     
+
+                      <div>
+                        <ng-container *ngIf="item.isActive">
+                          <mat-icon class="text-green-700 icon-size-5" [svgIcon]="'heroicons_solid:check'"></mat-icon>
+                        </ng-container>
+                        <ng-container *ngIf="!item.isActive">
+                          <mat-icon class="text-red-700 icon-size-5" [svgIcon]="'heroicons_solid:x-mark'"> </mat-icon>
+                        </ng-container>
+                      </div>
+
+                      <div>
+                        <button class="min-w-10 min-h-7 h-7 px-2 mr-2 leading-6"  *ngIf="moduleConfig.copyItem" [disabled]="!canCopy" mat-stroked-button (click)="copyItem(item)">
+                          <mat-icon class="icon-size-4" [svgIcon]="'mat_solid:content_copy'">
+                          </mat-icon>
+                        </button>
+                        <button class="min-w-10 min-h-7 h-7 px-2 leading-6" mat-stroked-button (click)="toggleDetails(item.id)">
+                          <mat-icon class="icon-size-4" [svgIcon]="selectedItem?.id === item.id ? 'heroicons_solid:x-mark' : 'heroicons_solid:pencil'">
+                          </mat-icon>
+                        </button>
+                      </div>
+                      
+                    </div>
+                    <div class="grid">
+                      <ng-container *ngIf="selectedItem?.id === item.id">
+                        <ng-container *ngTemplateOutlet="rowDetailsTemplate; context: { $implicit: item }"> </ng-container>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+                  
+                </ng-container>
+              </ng-container>
+            </div>
+          </ng-container>
+          <mat-paginator
+            class="sm:absolute sm:inset-x-0 sm:bottom-0 border-b sm:border-t sm:border-b-0 z-10 bg-gray-50 dark:bg-transparent"
+            [ngClass]="{ 'pointer-events-none': isLoading }"
+            [length]="pagination.length"
+            [pageIndex]="pagination.page"
+            [pageSize]="pagination.size"
+            [pageSizeOptions]="[10, 25, 50, 100]"
+            [showFirstLastButtons]="true"
+          ></mat-paginator>
+
+          <ng-template #rowDetailsTemplate let-product>
+            <div class="shadow-lg overflow-hidden bg-slate-100">
+              <div class="flex border-b">
+                <form class="flex flex-col w-full" [formGroup]="selectedItemForm">
+                  <div class="flex flex-col sm:flex-row p-8">
+                    <div class="flex flex-auto flex-wrap">
+                      <div class="flex flex-auto flex-wrap">
+                        <!-- il 
+                        <select-search-custom
+                        class="lg:w-1/3 w-full lg:pr-2"
+                        [bankCtrl]="fc('basekat')"
+                        [selectData]="selects.cities"
+                        [labelName]="'İl'"
+                      ></select-search-custom>
+                      -->
+                        <mat-form-field class="lg:w-1/3 w-full lg:pr-2">
+                          <mat-label>Tanım</mat-label>
+                          <input matInput [formControlName]="'title'" />
+                        </mat-form-field>
+                        <mat-form-field class="lg:w-1/3 w-full lg:pr-2">
+                          <mat-label>Sıra No</mat-label>
+                          <input type="number" matInput [formControlName]="'siraNo'" />
+                        </mat-form-field>
+                        <div class="flex flex-col w-full lg:w-1/3">
+                          <span class="font-semibold mb-2">Durum</span>
+                          <mat-slide-toggle [formControlName]="'isActive'" [color]="'primary'">
+                            {{ selectedItemForm.get('isActive').value === true ? 'Aktif' : 'Pasif' }}
+                          </mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center bg-slate-200 justify-between w-full border-t px-8 py-4">
+                    <button class="-ml-4" mat-button [color]="'warn'" (click)="toggleDetails(selectedItem.id)">İptal</button>
+                    <div class="flex items-center">
+                      <div class="flex items-center mr-4" *ngIf="flashMessage">
+                        <ng-container *ngIf="flashMessage === 'success'">
+                          <mat-icon class="text-green-500" [svgIcon]="'heroicons_outline:check'"></mat-icon>
+                          <span class="ml-2">Kaydedildi</span>
+                        </ng-container>
+                        <ng-container *ngIf="flashMessage === 'error'">
+                          <mat-icon class="text-red-500" [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+                          <span class="ml-2">Bir hata oluştu, Tekrar Deneyin!</span>
+                        </ng-container>
+                      </div>
+
+                      <button mat-flat-button [color]="'primary'" (click)="updateSelectedItem()" [disabled]="selectedItemForm.invalid">Kaydet</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template #noItems>
+            <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">Kayıt Bulunamadı!</div>
+          </ng-template>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+<div *ngIf="isExcellLoading" class="example-loading-shade">
+  <mat-spinner color="primary"></mat-spinner>
+  <div class="mt-12 font-semibold mb-12 text-2xl text-white text-center">Verileriniz indiriliyor. <br /> Veri
+      büyüklüğüne göre bu işlem birkaç dakika sürebilir. <br /> Lütfen Bekleyiniz.</div>
+</div>

@@ -112,6 +112,35 @@ export const appRoutes: Route[] = [
         loadChildren: () =>
           import('app/modules/admin/administration/administration.routes'),
       },
+      {
+        path: 'settings',
+        children: [
+          {path: 'phonetypes', loadChildren: () => import('app/modules/admin/settings/phonetypes/modules.routes')},
+          {path: 'socialmediaplatforms', loadChildren: () => import('app/modules/admin/settings/socialmediaplatforms/modules.routes')},
+          {path: 'buildingtypes', loadChildren: () => import('app/modules/admin/settings/buildingtypes/modules.routes')},
+          {path: 'propertytypes', loadChildren: () => import('app/modules/admin/settings/propertytypes/modules.routes')},
+          {path: 'unvans', loadChildren: () => import('app/modules/admin/settings/unvans/modules.routes')},
+          {path: 'usagetypes', loadChildren: () => import('app/modules/admin/settings/usagetypes/modules.routes')},
+        ]
+      },
+      {
+        path: 'developers',
+        children: [
+          {path: 'developer', loadChildren: () => import('app/modules/admin/developers/developer/modules.routes')},
+        ]
+      },
+      {
+        path: 'projects',
+        children: [
+          {path: 'project', loadChildren: () => import('app/modules/admin/projects/project/modules.routes')},
+        ]
+      },
+      {
+        path: 'mcompanies',
+        children: [
+          {path: 'mcompany', loadChildren: () => import('app/modules/admin/mcompanies/mcompany/modules.routes')},
+        ]
+      }
     ],
   },
 ];

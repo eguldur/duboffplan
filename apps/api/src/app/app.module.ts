@@ -17,6 +17,9 @@ import { JwtService } from '@nestjs/jwt';
 import { InAppNotificationsModule } from './in-app-notifications/in-app-notifications.module';
 import { SettingsModule } from './settings/settings.module';
 import { FileserverModule } from './fileserver/fileserver.module';
+import { DeveloperModule } from './developer/developer.module';
+import { McompanyModule } from './mcompany/mcompany.module';
+import { ProjectModule } from './project/project.module';
 
 const jwt = new JwtService();
 
@@ -95,7 +98,10 @@ const jwt = new JwtService();
     AdminModule,
     InAppNotificationsModule,
     SettingsModule,
-    FileserverModule
+    FileserverModule,
+    DeveloperModule,
+    McompanyModule,
+    ProjectModule,
   ],
 })
 export class AppModule {}
