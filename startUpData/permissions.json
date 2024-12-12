@@ -339,3 +339,25 @@
     "title" : "Yönetim Firmaları Ekleme / Düzenleme",
     "updatedAt" : ISODate("2024-12-11T15:57:18.636+0000")
 }
+{
+    "_id" : ObjectId("675b0769c2d07ba831a642eb"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("675b070ac2d07ba831a642bf"),
+    "createdAt" : ISODate("2024-12-12T15:55:21.846+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1031),
+    "submodule" : ObjectId("675b0738c2d07ba831a642e5"),
+    "title" : "Contact List Listeleme",
+    "updatedAt" : ISODate("2024-12-12T15:55:21.846+0000")
+}
+{
+    "_id" : ObjectId("675b0769c2d07ba831a642f3"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("675b070ac2d07ba831a642bf"),
+    "createdAt" : ISODate("2024-12-12T15:55:21.849+0000"),
+    "isActive" : true,
+    "permId" : NumberInt(1032),
+    "submodule" : ObjectId("675b0738c2d07ba831a642e5"),
+    "title" : "Contact List Ekleme / Düzenleme",
+    "updatedAt" : ISODate("2024-12-12T15:55:21.849+0000")
+}

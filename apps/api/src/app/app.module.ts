@@ -20,6 +20,7 @@ import { FileserverModule } from './fileserver/fileserver.module';
 import { DeveloperModule } from './developer/developer.module';
 import { McompanyModule } from './mcompany/mcompany.module';
 import { ProjectModule } from './project/project.module';
+import { CitizenModule } from './citizen/citizens.module';
 
 const jwt = new JwtService();
 
@@ -102,6 +103,7 @@ const jwt = new JwtService();
     DeveloperModule,
     McompanyModule,
     ProjectModule,
+    CitizenModule,
   ],
 })
 export class AppModule {}

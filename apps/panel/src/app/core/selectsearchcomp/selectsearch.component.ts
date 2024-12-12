@@ -18,7 +18,7 @@ import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
   template: `
     <mat-form-field class="w-full">
       <mat-label>{{ labelName }}</mat-label>
-      <mat-select [formControl]="bankCtrl" placeholder="Seçiniz" #singleSelect>
+      <mat-select [formControl]="bankCtrl" placeholder="Seçiniz" #singleSelect [multiple]="multiple" >
         <mat-option>
           <ngx-mat-select-search
             [placeholderLabel]="'Ara...'"
@@ -53,6 +53,7 @@ export class SelectSearchComponent implements OnInit, OnDestroy, AfterViewInit, 
   @Input() selectData: any[] = [];
   @Input() bankCtrl: FormControl = new FormControl();
   @Input() labelName = '';
+  @Input() multiple = false;
 
   /** list of banks */
   public banks: any[] = this.selectData;

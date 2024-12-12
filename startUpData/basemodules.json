@@ -4,11 +4,11 @@
     "createdAt" : ISODate("2024-07-24T22:29:19.913+0000"),
     "icon" : "mat_outline:admin_panel_settings",
     "isActive" : true,
-    "siraNo" : NumberInt(6),
+    "siraNo" : NumberInt(7),
     "subtitle" : " ",
     "title" : "Sistem Yönetimi",
     "type" : "collapsable",
-    "updatedAt" : ISODate("2024-12-11T15:56:38.320+0000")
+    "updatedAt" : ISODate("2024-12-12T15:54:21.270+0000")
 }
 {
     "_id" : ObjectId("66a180e8aa8993dd221262d9"),
@@ -28,11 +28,11 @@
     "createdAt" : ISODate("2024-12-11T15:14:46.315+0000"),
     "icon" : "mat_outline:settings",
     "isActive" : true,
-    "siraNo" : NumberInt(5),
+    "siraNo" : NumberInt(6),
     "subtitle" : " ",
     "title" : "Ayarlar",
     "type" : "collapsable",
-    "updatedAt" : ISODate("2024-12-11T15:56:38.320+0000")
+    "updatedAt" : ISODate("2024-12-12T15:54:21.270+0000")
 }
 {
     "_id" : ObjectId("6759b3c9d29937ad5ebde786"),
@@ -64,9 +64,21 @@
     "createdAt" : ISODate("2024-12-11T15:56:38.317+0000"),
     "icon" : "mat_outline:clean_hands",
     "isActive" : true,
-    "siraNo" : NumberInt(4),
+    "siraNo" : NumberInt(5),
     "subtitle" : " ",
     "title" : "Yönetim Firmaları",
     "type" : "collapsable",
-    "updatedAt" : ISODate("2024-12-11T15:56:38.317+0000")
+    "updatedAt" : ISODate("2024-12-12T15:54:21.270+0000")
+}
+{
+    "_id" : ObjectId("675b070ac2d07ba831a642bf"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-12T15:54:21.264+0000"),
+    "icon" : "mat_outline:contacts",
+    "isActive" : true,
+    "siraNo" : NumberInt(4),
+    "subtitle" : " ",
+    "title" : "Contact List",
+    "type" : "collapsable",
+    "updatedAt" : ISODate("2024-12-12T15:54:21.264+0000")
 }

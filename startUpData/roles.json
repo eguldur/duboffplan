@@ -34,8 +34,10 @@
         NumberInt(1027),
         NumberInt(1028),
         NumberInt(1029),
-        NumberInt(1030)
+        NumberInt(1030),
+        NumberInt(1031),
+        NumberInt(1032)
     ],
     "title" : "Yönetici",
-    "updatedAt" : ISODate("2024-12-11T15:57:26.429+0000")
+    "updatedAt" : ISODate("2024-12-12T15:55:35.365+0000")
 }

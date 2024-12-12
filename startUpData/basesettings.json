@@ -4,9 +4,9 @@
     "createdAt" : ISODate("2024-12-11T15:35:40.037+0000"),
     "isActive" : true,
     "siraNo" : NumberInt(1),
-    "title" : "Mobil",
+    "title" : "Mobile",
     "type" : "phonetypes",
-    "updatedAt" : ISODate("2024-12-11T15:35:54.396+0000")
+    "updatedAt" : ISODate("2024-12-12T15:19:34.938+0000")
 }
 {
     "_id" : ObjectId("6759b14c14e57f394cd3211d"),
@@ -14,9 +14,9 @@
     "createdAt" : ISODate("2024-12-11T15:35:48.226+0000"),
     "isActive" : true,
     "siraNo" : NumberInt(2),
-    "title" : "Sabit",
+    "title" : "Bussiness",
     "type" : "phonetypes",
-    "updatedAt" : ISODate("2024-12-11T15:35:48.226+0000")
+    "updatedAt" : ISODate("2024-12-12T15:19:13.658+0000")
 }
 {
     "_id" : ObjectId("6759b15e14e57f394cd3212e"),
@@ -24,9 +24,9 @@
     "createdAt" : ISODate("2024-12-11T15:36:05.878+0000"),
     "isActive" : true,
     "siraNo" : NumberInt(3),
-    "title" : "Mobil - Whatsapp",
+    "title" : "Mobile - Whatsapp",
     "type" : "phonetypes",
-    "updatedAt" : ISODate("2024-12-11T15:36:05.878+0000")
+    "updatedAt" : ISODate("2024-12-12T15:19:28.535+0000")
 }
 {
     "_id" : ObjectId("6759b16614e57f394cd32139"),
@@ -177,4 +177,24 @@
     "title" : "Broker",
     "type" : "unvans",
     "updatedAt" : ISODate("2024-12-11T15:50:24.393+0000")
+}
+{
+    "_id" : ObjectId("675afec8a297160379673cb9"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-12T15:18:42.371+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(5),
+    "title" : "Toll-Free",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-12T15:18:42.371+0000")
+}
+{
+    "_id" : ObjectId("675afed3a297160379673cc6"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-12T15:18:51.076+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(6),
+    "title" : "International",
+    "type" : "phonetypes",
+    "updatedAt" : ISODate("2024-12-12T15:19:02.902+0000")
 }

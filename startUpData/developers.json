@@ -1,0 +1,57 @@
+{
+    "_id" : ObjectId("675ae9a5961948bb30cc3570"),
+    "__v" : NumberInt(0),
+    "address" : "Level 7, Dubai Hills Business Park Bldg 1",
+    "address_dld" : null,
+    "createdAt" : ISODate("2024-12-12T13:55:42.968+0000"),
+    "description" : "With a net asset value of AED 177.5 Bn (USD 48.3 Bn)*, Emaar Properties is among the most admired and valuable real estate development companies in the world. Emaar, which has established competencies in real estate, retail and shopping malls, hospitality, and leisure, shapes new lifestyles through its commitment to design excellence, build quality, and timely delivery.\n\n*As of 31st December 2023, and based on the valuation of assets done by third party valuer..",
+    "dldId" : NumberInt(1211),
+    "email" : "info@emaar.com",
+    "email_dld" : "Aadib@emaar.ae",
+    "isActive" : true,
+    "phone_dld" : " 971|3673000",
+    "title" : "Emaar",
+    "title_dld" : "Emaar Development P.J.S.C.",
+    "type" : "developer",
+    "updatedAt" : ISODate("2024-12-12T15:53:11.107+0000"),
+    "location" : {
+        "type" : "Point",
+        "coordinates" : [
+            55.15081070116354,
+            25.07942425721248
+        ]
+    },
+    "phone" : [
+        {
+            "phoneType" : ObjectId("6759b16614e57f394cd32139"),
+            "phone" : "97180036227",
+            "_id" : ObjectId("675b06e7c2d07ba831a642a8")
+        },
+        {
+            "phoneType" : ObjectId("675afec8a297160379673cb9"),
+            "phone" : "80036227",
+            "_id" : ObjectId("675b06e7c2d07ba831a642a9")
+        },
+        {
+            "phoneType" : ObjectId("675afed3a297160379673cc6"),
+            "phone" : "97143661688",
+            "_id" : ObjectId("675b06e7c2d07ba831a642aa")
+        }
+    ],
+    "socialMediaAccounts" : [
+        {
+            "platform" : "6759b17914e57f394cd32158",
+            "username" : "emaardubai"
+        },
+        {
+            "platform" : "6759b17f14e57f394cd32162",
+            "username" : "emaardubai"
+        },
+        {
+            "platform" : "6759b16f14e57f394cd3214f",
+            "username" : "emaar-properties"
+        }
+    ],
+    "website" : "https://www.emaar.com/",
+    "logo" : "2024/11/12/image-806301c7e5c6a9621c8a1b08e0c2b0d41877394c.webp"
+}

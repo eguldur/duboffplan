@@ -235,7 +235,7 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
       id: [null],
       title: [null, [Validators.required]],
       isActive: [false],
-      dldId: [null],
+      dldId: [null, [Validators.required]],
       phone: [null],
       mobile: [null],
       email: [null],

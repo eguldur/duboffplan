@@ -190,3 +190,15 @@
     "type" : "basic",
     "updatedAt" : ISODate("2024-12-11T15:57:18.632+0000")
 }
+{
+    "_id" : ObjectId("675b0738c2d07ba831a642e5"),
+    "__v" : NumberInt(0),
+    "basemodule" : ObjectId("675b070ac2d07ba831a642bf"),
+    "createdAt" : ISODate("2024-12-12T15:55:21.838+0000"),
+    "isActive" : true,
+    "link" : "/contacts/contact",
+    "siraNo" : NumberInt(1),
+    "title" : "Contact List",
+    "type" : "basic",
+    "updatedAt" : ISODate("2024-12-12T15:55:21.840+0000")
+}

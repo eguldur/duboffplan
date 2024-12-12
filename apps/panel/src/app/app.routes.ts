@@ -140,6 +140,12 @@ export const appRoutes: Route[] = [
         children: [
           {path: 'mcompany', loadChildren: () => import('app/modules/admin/mcompanies/mcompany/modules.routes')},
         ]
+      },
+      {
+        path: 'contacts',
+        children: [
+          {path: 'contact', loadChildren: () => import('app/modules/admin/contacts/contact/modules.routes')},
+        ]
       }
     ],
   },
