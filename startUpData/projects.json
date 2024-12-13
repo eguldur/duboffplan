@@ -1,0 +1,65 @@
+{
+    "_id" : ObjectId("675be20bb1e6fccba32257dd"),
+    "__v" : NumberInt(0),
+    "address" : "Shoreline 1 The Palm Jumeirah - Dubai",
+    "area_dld" : NumberInt(1),
+    "bank_dld" : "sadfasdf",
+    "bankaccount_dld" : NumberInt(213123),
+    "createdAt" : ISODate("2024-12-13T07:29:06.687+0000"),
+    "description" : "asdf",
+    "developer" : ObjectId("675ae9a5961948bb30cc3570"),
+    "dldId" : NumberInt(213),
+    "email" : "asdf",
+    "finishedAt_dld" : "21/02/1988",
+    "isActive" : false,
+    "location" : {
+        "type" : "Point",
+        "coordinates" : [
+            55.1502411,
+            25.1075244
+        ]
+    },
+    "logo" : "2024/11/13/image-a6870b3bd766d91ac7bb542f20f88a3a25485094.webp",
+    "mcompany" : ObjectId("6759bcf06ac91aceb7f0fb27"),
+    "phone" : [
+        {
+            "phoneType" : ObjectId("6759b14c14e57f394cd3211d"),
+            "phone" : "sdaf",
+            "_id" : ObjectId("675bffbc8063f804688d7359")
+        }
+    ],
+    "projectUnits_dld" : [
+        {
+            "usagetype" : "6759b39fd29937ad5ebde747",
+            "propertytype" : "6759b307d29937ad5ebde6f5",
+            "units" : NumberInt(1)
+        },
+        {
+            "usagetype" : "6759b39fd29937ad5ebde747",
+            "propertytype" : "675be06953dd312d2e4e2a3a",
+            "units" : NumberInt(2)
+        }
+    ],
+    "registedAt_dld" : "21/02/1988",
+    "socialMediaAccounts" : [
+        {
+            "platform" : "6759b17914e57f394cd32158",
+            "username" : "asdf"
+        }
+    ],
+    "startedAt_dld" : "21/02/1988",
+    "title" : "asdasd",
+    "title_dld" : "sadfsadf",
+    "type" : "project",
+    "units_dld" : NumberInt(1),
+    "updatedAt" : ISODate("2024-12-13T09:34:52.369+0000"),
+    "website" : "sadf",
+    "address_sale" : "Shoreline 10 The Palm Jumeirah - Dubai",
+    "location_sale" : {
+        "type" : "Point",
+        "coordinates" : [
+            55.1416282,
+            25.1141499
+        ]
+    }
+}

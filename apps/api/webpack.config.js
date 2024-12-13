@@ -14,6 +14,7 @@ module.exports = {
       assets: ['./src/assets', './src/img/uploads', './src/templates'],
       optimization: true,
       outputHashing: 'none',
+      generatePackageJson: true,
     }),
   ],
 };

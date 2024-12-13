@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core'
 import { FormsModule, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
@@ -34,7 +34,7 @@ import { MultiAddDialogComponent } from './dialogs/multiadd/dialog.component'
 import { moduleConfig } from '../module.config'
 import { SelectSearchComponent } from 'app/core/selectsearchcomp/selectsearch.component'
 import { MatDividerModule } from '@angular/material/divider'
-import { GoogleMap, MapMarker } from '@angular/google-maps';
+import { GoogleMap, MapGeocoder, MapMarker } from '@angular/google-maps';
 import { FileUploaderComponent } from 'app/layout/common/fileuploader/fileuploader.component'
 import { config } from 'frontend.config'
 
@@ -80,7 +80,7 @@ import { config } from 'frontend.config'
 })
 export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatDrawer) private matDrawer: MatDrawer
-
+  private mapGeocoder = inject(MapGeocoder);
   moduleConfig = moduleConfig
   title: string = moduleConfig.title
   @ViewChild(MatPaginator) private _paginator: MatPaginator
@@ -229,8 +229,26 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
   }
 
 
-  
-
+  findFromAddress(address: string): void {
+    this.mapGeocoder.geocode({
+      address: address
+    }).subscribe(response => {
+      if (response.results?.[0]) {
+        const location = response.results[0].geometry.location;
+        this.setCenterMapWithZoom(
+          location.lat(),
+          location.lng(),
+          15
+        );
+      } else {
+        this._toastr.error('Adres Bulunamadı', 'Hata', {
+          closeButton: true,
+          progressBar: true,
+          positionClass: 'toast-top-center',
+        })
+      }
+    });
+  }
   ngAfterViewInit(): void {
     if (this._sort && this._paginator) {
       this._sort.sortChange.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {

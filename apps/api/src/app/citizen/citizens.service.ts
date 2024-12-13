@@ -20,6 +20,10 @@ export class CitizenService {
     return await this.citizenModel.find({ isActive: true, type: type }).sort({ title: 1, updatedAt: -1 }).exec();
   }
 
+  async getBaseModulesCountActive(): Promise<number> {
+    return await this.citizenModel.countDocuments({ isActive: true });
+  }
+
   async getBaseModulesPagintaion(args: FetchPaginationData): Promise<CitizenPagination> {
     const { search, sort, order, page, size, status, filter, type, selectedIds } = args;
     let query = {};
@@ -95,13 +99,13 @@ export class CitizenService {
 
   async update(updateCitizenInput: UpdateCitizenInput, user: Auth, changeAvatar: boolean): Promise<CitizenDocument> {
     const record = await this.citizenModel.findById(updateCitizenInput.id).exec();
-    const updatedData: any = { ...updateCitizenInput };
 
     if (changeAvatar) {
         updateCitizenInput.avatar = await this.imageBase64Service.uploadBase64Sharp(
         updateCitizenInput.avatar
       );
     }
+    const updatedData: any = { ...updateCitizenInput };
 
     let returnData: any = {};
 

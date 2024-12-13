@@ -26,6 +26,11 @@ export class ProjectResolver {
     return this._pubSub.asyncIterator('newProjectSub');
   }
 
+  @Query((returns) => Number)
+  async projectCountActive(@CurrentUser() _data: any) {
+    return this.basemodulesService.getBaseModulesCountActive();
+  }
+
   @Query((returns) => [Project])
   getProjectByBasecat(@Args('id') id: string, @CurrentUser() _data: any) {
     return this.basemodulesService.getActiveBaseModulesByBasecat(id);
@@ -42,7 +47,7 @@ export class ProjectResolver {
   }
 
   @Query((returns) => ReturnCauntData)
-  async developerCount(@Args() args: FetchPaginationData, @CurrentUser() _data: any) {
+  async projectCount(@Args() args: FetchPaginationData, @CurrentUser() _data: any) {
     return this.basemodulesService.getBaseModulesCount(args);
   }
 

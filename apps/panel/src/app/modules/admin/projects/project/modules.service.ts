@@ -115,7 +115,7 @@ export class ModulesService
           })
           .valueChanges.pipe(
             map(({ data, loading }) => {
-              this._selects.next({ cities: data.cities });
+              this._selects.next({ phonetypes: data.phonetypes, socialmediaplatforms: data.socialmediaplatforms, developers: data.developers, usagetypes: data.usagetypes, propertytypes: data.propertytypes, mcompanies: data.mcompanies });
               return data;
             }),
           );
@@ -162,7 +162,7 @@ export class ModulesService
     }
 
    
-    updateitem(id: string, updateItem: BaseItem): Observable<BaseItem>
+    updateitem(id: string, updateItem: BaseItem, changeAvatar: boolean): Observable<BaseItem>
     {
             updateItem.type = this.settingType
             return this.items$.pipe(
@@ -172,6 +172,7 @@ export class ModulesService
                 mutation: this._graphql.updateItem,
                 variables: {
                     item: updateItem,
+                    changeAvatar: changeAvatar
                 }
                 })
                 .pipe(

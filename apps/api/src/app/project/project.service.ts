@@ -27,6 +27,10 @@ export class ProjectService {
     return await this.baseModulModel.find({ isActive: true, basekat: basekat }).sort({ title: 1, updatedAt: -1 }).collation({ locale: 'tr' }).exec();
   }
 
+  async getBaseModulesCountActive(): Promise<number> {
+    return await this.baseModulModel.countDocuments({ isActive: true });
+  }
+
   async getBaseModulesPagintaion(args: FetchPaginationData): Promise<ProjectPagination> {
     const { search, sort, order, page, size, status, filter, type, selectedIds } = args;
     let query = {};
@@ -58,6 +62,7 @@ export class ProjectService {
     const returnData = await this.baseModulModel
       .find(query)
       .skip(page * size)
+      .populate('developer mcompany')
       .limit(size)
       .sort({ [sort]: ordertpye })
       .collation({ locale: 'tr' })
@@ -110,7 +115,7 @@ export class ProjectService {
     const returnData = await this.baseModulModel.findByIdAndUpdate(id, updateBasemoduleInput, {
       new: true,
       upsert: true,
-    });
+    }).populate('developer mcompany');
 
     await this._pubSub.publish('newProjectSub', { newProjectSub: returnData });
     return returnData;

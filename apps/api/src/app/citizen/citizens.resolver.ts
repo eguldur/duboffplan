@@ -25,6 +25,11 @@ export class CitizenResolver {
     return this._pubSub.asyncIterator('citizenSub');
   }
 
+  @Query(() => Number)
+  async citizenCountActive(@CurrentUser() _data: any) {
+    return this.citizenService.getBaseModulesCountActive();
+  }
+
   @Query(() => [Citizen])
   citizenSelect(@Args('type') type: string, @CurrentUser() _data: any) {
     return this.citizenService.getActiveBaseModulesByType(type);

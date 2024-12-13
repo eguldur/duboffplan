@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ProjectService } from './project.service';
-import { ProjectResolver } from './project.resolver';
+import { ProjectResolver, ProjectUnitsDLDResolver } from './project.resolver';
 import { Project, ProjectSchema } from './entities/project.entity';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BaseSettingsModule } from '../settings/basesettings/base-settings.module';
@@ -11,7 +11,7 @@ import { Redis } from 'ioredis';
 
 @Module({
   imports: [BaseSettingsModule, MongooseModule.forFeature([{ name: Project.name, schema: ProjectSchema }])],
-  providers: [ProjectResolver, ProjectService, UploadFromBase64Service,
+  providers: [ProjectResolver, ProjectService, ProjectUnitsDLDResolver, UploadFromBase64Service,
     {
       provide: 'PUB_SUB',
       useFactory: async (configService: ConfigService) => {

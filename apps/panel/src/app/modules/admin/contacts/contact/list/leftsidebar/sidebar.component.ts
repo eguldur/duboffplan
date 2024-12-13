@@ -176,7 +176,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
               title: 'Tümü',
               type: 'basic',
               icon: 'mat_solid:all_inclusive',
-              link : '/'+moduleConfig.type+'/'+moduleConfig.type2+'/0',
+              link : '/contacts/contact/0',
               badge: {
                 title: (this.counts.count1 + this.counts.count2).toString(),
                 classes: 'bg-blue-500 text-white px-2 rounded-full',
@@ -186,7 +186,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
               title: 'Aktif',
               type: 'basic',
               icon: 'heroicons_solid:check',
-              link : '/'+moduleConfig.type+'/'+moduleConfig.type2+'/1',
+              link : '/contacts/contact/1',
               badge: {
                 title: this.counts.count1.toString(),
                 classes: 'bg-green-700 text-white px-2 rounded-full',
@@ -197,7 +197,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
               title: 'Pasif',
               type: 'basic',
               icon: 'heroicons_solid:x-mark',
-              link : '/'+moduleConfig.type+'/'+moduleConfig.type2+'/2',
+              link : '/contacts/contact/2',
               badge: {
                 title: this.counts.count2.toString(),
                 classes: 'bg-red-700 text-white px-2 rounded-full',

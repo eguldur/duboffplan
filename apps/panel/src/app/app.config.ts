@@ -4,6 +4,7 @@ import {
   ApplicationConfig,
   inject,
   isDevMode,
+  LOCALE_ID,
 } from '@angular/core';
 import { LuxonDateAdapter } from '@angular/material-luxon-adapter';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
@@ -45,6 +46,14 @@ import { Kind, OperationTypeNode } from 'graphql';
 
 import { config } from 'frontend.config';
 import { FuseConfig } from '@fuse/services/config';
+
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { getDutchPaginatorIntl } from './tr-paginator-intl';
+
+import { registerLocaleData } from '@angular/common';
+import localeTr from '@angular/common/locales/tr';
+registerLocaleData(localeTr, 'tr-TR');
+
 const fusCongig =  localStorage.getItem('fuse-config');
 const fuseConfig: FuseConfig = fusCongig ?   JSON.parse(fusCongig) : null;
 
@@ -97,6 +106,8 @@ export const appConfig: ApplicationConfig = {
         },
       },
     },
+    { provide: LOCALE_ID, useValue: 'tr-TR' },
+    { provide: MatPaginatorIntl, useValue: getDutchPaginatorIntl() },   
     {
       provide: APOLLO_OPTIONS,
       useFactory(httpLink: HttpLink): ApolloClientOptions<unknown> {

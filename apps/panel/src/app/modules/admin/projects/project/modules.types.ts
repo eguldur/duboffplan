@@ -7,6 +7,14 @@ export interface BaseItem
     type?: string;
     updateIds?: string[];
     basekat?: any;
+    location?: any;
+    phone?: any;
+    socialMediaAccounts?: any;
+    logo?: any;
+    projectUnits_dld?: any;
+    developer?: any;
+    mcompany?: any;
+    location_sale?: any;
 }
 
 export interface ItemPagination

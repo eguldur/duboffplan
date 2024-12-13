@@ -3,7 +3,8 @@ import mongoose, { Document } from 'mongoose';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { ReturnPaginationData } from '../../_core/helpers/functions';
 import { BaseSettings } from '../../settings/basesettings/entities/base-setting.entity';
-import { GeoPoint, Phone, SocialMediaAccount } from '../../developer/entities/developer.entity';
+import { Developer, GeoPoint, Phone, SocialMediaAccount } from '../../developer/entities/developer.entity';
+import { MCompany } from '../../mcompany/entities/mcompany.entity';
 
 
 
@@ -52,15 +53,23 @@ export type ProjectDocument = Project & Document;
 
   @Field({ nullable: true })
   @Prop()
-  registedAt_dld: Date;
+  bank_dld: string;
 
   @Field({ nullable: true })
   @Prop()
-  startedAt_dld: Date;
+  bankaccount_dld: number;
 
   @Field({ nullable: true })
   @Prop()
-  finishedAt_dld: Date;
+  registedAt_dld: string;
+
+  @Field({ nullable: true })
+  @Prop()
+  startedAt_dld: string;
+
+  @Field({ nullable: true })
+  @Prop()
+  finishedAt_dld: string;
 
   @Field({ nullable: true })
   @Prop()
@@ -83,6 +92,10 @@ export type ProjectDocument = Project & Document;
   address: string;
 
   @Field({ nullable: true })
+  @Prop()
+  address_sale: string;
+
+  @Field({ nullable: true })
   @Prop({ index: true })
   website: string;
 
@@ -99,6 +112,10 @@ export type ProjectDocument = Project & Document;
   @Prop({ type: GeoPoint, index: '2dsphere' })
   location: GeoPoint;
 
+  @Field(() => GeoPoint, { nullable: true })
+  @Prop({ type: GeoPoint, index: '2dsphere' })
+  location_sale: GeoPoint;
+
   @Field({ nullable: true })
   @Prop()
   logo: string;
@@ -106,6 +123,14 @@ export type ProjectDocument = Project & Document;
   @Field(() => [ProjectUnitsDLD], { nullable: true })
   @Prop([{ type: ProjectUnitsDLD }])
   projectUnits_dld: ProjectUnitsDLD[];
+
+  @Field(() => Developer, { nullable: true })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Developer' })
+  developer: Developer;
+
+  @Field(() => MCompany, { nullable: true })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'MCompany' })
+  mcompany: MCompany;
 
 }
 

@@ -31,13 +31,13 @@ export class CreateProjectInput {
   units_dld: number;
 
   @Field({ nullable: true })
-  registedAt_dld: Date;
+  registedAt_dld: string;
 
   @Field({ nullable: true })
-  startedAt_dld: Date;
+  startedAt_dld: string;
 
   @Field({ nullable: true })
-  finishedAt_dld: Date;
+  finishedAt_dld: string;
 
   @Field({ nullable: true })
   area_dld: number;
@@ -52,7 +52,12 @@ export class CreateProjectInput {
   email: string;
 
   @Field({ nullable: true })
-  address: string;
+  bank_dld: string;
+
+  @Field({ nullable: true })
+  bankaccount_dld: number;
+
+
 
   @Field({ nullable: true })
   website: string;
@@ -63,13 +68,27 @@ export class CreateProjectInput {
   @Field({ nullable: true })
   isActive: boolean;
   
+  @Field({ nullable: true })
+  address: string;
 
   @Field(() => GeoPointObjInput, { nullable: true })
   location: GeoPointObjInput;
+
+  @Field({ nullable: true })
+  address_sale: string;
+  
+  @Field(() => GeoPointObjInput, { nullable: true })
+  location_sale: GeoPointObjInput;
 
   @Field({ nullable: true })
   logo: string;
 
   @Field(() => [ProjectUnitsDLDInput], { nullable: true })
   projectUnits_dld: ProjectUnitsDLDInput[];
+
+  @Field(() => String, { nullable: true })
+  developer: string;
+
+  @Field(() => String, { nullable: true })
+  mcompany: string;
 }

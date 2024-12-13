@@ -2,15 +2,66 @@ import { gql } from 'apollo-angular';
 export const GRAPHQL = {
   subscribeToItem: gql`
     subscription ($type: String!) {
-      itemSub:newSettingSub(type: $type) {
+      itemSub: newProjectSub(type: $type) {
         id
         title
-        type
-        siraNo
-        isActive
-        basekat {
+        description
+        title_dld
+        dldId
+        units_dld
+        bank_dld
+        bankaccount_dld
+        registedAt_dld
+        startedAt_dld
+        finishedAt_dld
+        area_dld
+        developer {
           id
           title
+        }
+        mcompany {
+          id
+          title
+        }
+        phone {
+          phoneType {
+            id
+            title
+          }
+          phone
+        }
+        socialMediaAccounts {
+          platform {
+            id
+            title
+          }
+          username
+        }
+        email
+        address
+        address_sale
+        website
+        type
+        isActive
+        location {
+          type
+          coordinates
+        }
+        location_sale {
+          type
+          coordinates
+        }
+        logo
+        projectUnits_dld {
+          usagetype {
+            id
+            title
+          }
+          propertytype {
+            id
+            title
+          }
+          units
         }
       }
     }
@@ -28,7 +79,7 @@ export const GRAPHQL = {
       $selectedIds: [String!]
       $type: String!
     ) {
-      itemPegination: basesettingsPegination(
+      itemPegination: projectPegination(
         page: $page
         size: $size
         sort: $sort
@@ -50,16 +101,67 @@ export const GRAPHQL = {
         items {
           id
           title
-          type
-          siraNo
-          isActive
-          basekat {
+          description
+          title_dld
+          dldId
+          units_dld
+          bank_dld
+          bankaccount_dld
+          registedAt_dld
+          startedAt_dld
+          finishedAt_dld
+          area_dld
+          developer {
             id
             title
           }
+          mcompany {
+            id
+            title
+          }
+          phone {
+            phoneType {
+              id
+              title
+            }
+            phone
+          }
+          socialMediaAccounts {
+            platform {
+              id
+              title
+            }
+            username
+          }
+          email
+          address
+          address_sale
+          website
+          type
+          isActive
+          location {
+            type
+            coordinates
+          }
+          location_sale {
+            type
+            coordinates
+          }
+          logo
+          projectUnits_dld {
+            usagetype {
+              id
+              title
+            }
+            propertytype {
+              id
+              title
+            }
+            units
+          }
         }
       }
-      itemCount: basesettingsCount(filter: $filter, status: $status, type: $type) {
+      itemCount: projectCount(filter: $filter, status: $status, type: $type) {
         count1
         count2
       }
@@ -67,39 +169,58 @@ export const GRAPHQL = {
   `,
   getSelects: gql`
     query {
-      cities: baseSettingsSelect(type: "city") {
+      phonetypes: baseSettingsSelect(type: "phonetypes") {
         id
         title
       }
-     
+      socialmediaplatforms: baseSettingsSelect(type: "socialmediaplatforms") {
+        id
+        title
+      }
+      developers: developerSelect(type: "developer") {
+        id
+        title
+      }
+      mcompanies: mCompanySelect(type: "mcompany") {
+        id
+        title
+      }
+      usagetypes: baseSettingsSelect(type: "usagetypes") {
+        id
+        title
+      }
+      propertytypes: baseSettingsSelect(type: "propertytypes") {
+        id
+        title
+      }
     }
   `,
   createItem: gql`
     mutation {
-      newItem: newBaseSettings {
+      newItem: newProject {
         id
         isActive
       }
     }
   `,
   updateItem: gql`
-    mutation ($item: updateBasesettingInput!) {
-      updateItem: updateBaseSetting(updateBasesettingInput: $item) {
+    mutation ($item: updateProjectInput!, $changeAvatar: Boolean!) {
+      updateItem: updateProject(updateProjectInput: $item, changeAvatar: $changeAvatar) {
         id
       }
     }
   `,
   updateItemMulti: gql`
-    mutation ($item: updateBasesettingInput!) {
-      updateBaseSettings(updateBasesettingInput: $item) {
+    mutation ($item: updateProjectInput!) {
+      updateProject(updateProjectInput: $item) {
         isOk
       }
     }
   `,
 
   createItemsMulti: gql`
-    mutation ($item: createMultiBaseSettingsInput!) {
-      createBaseSettings(createMultiBaseSettingsInput: $item) {
+    mutation ($item: createMultiProjectInput!) {
+      createProject(createMultiProjectInput: $item) {
         isOk
       }
     }

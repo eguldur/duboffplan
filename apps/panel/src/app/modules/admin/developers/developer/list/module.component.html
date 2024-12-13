@@ -283,11 +283,8 @@
                           <mat-label>Email</mat-label>
                           <input matInput [formControlName]="'email'" />
                         </mat-form-field>
-                        <mat-form-field class="w-full lg:w-1/2 lg:pr-2">
-                          <mat-label>Adres</mat-label>
-                          <textarea matInput [formControlName]="'address'" rows="2"></textarea>
-                        </mat-form-field>
-                        <div class="w-full lg:w-1/2">
+                        
+                        <div class="w-full">
                           <div class="font-semibold mb-1">Konum</div>
 
                           <google-map
@@ -304,7 +301,11 @@
                             }
                           </google-map>
                         </div>
-
+                        <mat-form-field class="w-full">
+                          <mat-label>Adres</mat-label>
+                          <textarea matInput [formControlName]="'address'" rows="2"></textarea>
+                          <button mat-icon-button (click)="findFromAddress(selectedItemForm.get('address').value)"> <mat-icon class="icon-size-5" [svgIcon]="'mat_solid:location_searching'"></mat-icon> </button>
+                        </mat-form-field>
                         <!-- DLD Bilgileri Bölümü -->
                         <div class="w-full mt-4 mb-4">
                           <div class="flex items-center">

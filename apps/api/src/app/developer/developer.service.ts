@@ -28,6 +28,10 @@ export class DeveloperService {
     return await this.baseModulModel.find({ isActive: true, basekat: basekat }).sort({ title: 1, updatedAt: -1 }).collation({ locale: 'tr' }).exec();
   }
 
+  async getBaseModulesCountActive(): Promise<number> {
+    return await this.baseModulModel.countDocuments({ isActive: true });
+  }
+
   async getBaseModulesPagintaion(args: FetchPaginationData): Promise<DeveloperPagination> {
     const { search, sort, order, page, size, status, filter, type, selectedIds } = args;
     let query = {};

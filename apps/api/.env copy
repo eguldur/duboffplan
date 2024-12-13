@@ -1,4 +1,4 @@
-MONGO_URL=mongodb://localhost:27017/duboffplan
+MONGO_URL=mongodb://duboffplanusr:12dubof34atr@185.150.130.14:27003/duboffplan
 RECAP_SECRET_KEY=0x4AAAAAAAeqwcmc7JLJDrF7ZLAonCTBVcE
 WEB_SITE=http://localhost:4200
 WEB_API=http://localhost:3000
@@ -13,3 +13,7 @@ REDIS_HOST=185.150.130.14
 REDIS_PORT=6301
 REDIS_USERNAME=default
 REDIS_PASSWORD=2009501029
+
+
+
+12dubof34atr

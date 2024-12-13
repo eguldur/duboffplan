@@ -198,3 +198,73 @@
     "type" : "phonetypes",
     "updatedAt" : ISODate("2024-12-12T15:19:02.902+0000")
 }
+{
+    "_id" : ObjectId("675be03e53dd312d2e4e29e4"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:20:37.644+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(10),
+    "title" : "NA ",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:23.249+0000")
+}
+{
+    "_id" : ObjectId("675be05253dd312d2e4e29f3"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:20:55.102+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(4),
+    "title" : "2 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:20:55.102+0000")
+}
+{
+    "_id" : ObjectId("675be05853dd312d2e4e2a00"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:21:00.045+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(5),
+    "title" : "3 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:00.045+0000")
+}
+{
+    "_id" : ObjectId("675be05c53dd312d2e4e2a0e"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:21:04.602+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(6),
+    "title" : "4 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:04.602+0000")
+}
+{
+    "_id" : ObjectId("675be06153dd312d2e4e2a1d"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:21:08.107+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(7),
+    "title" : "5 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:12.691+0000")
+}
+{
+    "_id" : ObjectId("675be06953dd312d2e4e2a3a"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:21:17.562+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(8),
+    "title" : "6 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:17.562+0000")
+}
+{
+    "_id" : ObjectId("675be06e53dd312d2e4e2a4b"),
+    "__v" : NumberInt(0),
+    "createdAt" : ISODate("2024-12-13T07:21:23.060+0000"),
+    "isActive" : true,
+    "siraNo" : NumberInt(9),
+    "title" : "7 Bedroom",
+    "type" : "propertytypes",
+    "updatedAt" : ISODate("2024-12-13T07:21:23.060+0000")
+}

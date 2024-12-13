@@ -6,10 +6,10 @@ import { LayoutComponent } from 'app/layout/layout.component';
 
 
 export const appRoutes: Route[] = [
-  { path: '', pathMatch: 'full', redirectTo: 'example' },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboards/analytics' },
 
   
-  { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'example' },
+  { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'dashboards/analytics' },
 
   {
     path: '',
@@ -97,6 +97,9 @@ export const appRoutes: Route[] = [
       initialData: initialDataResolver,
     },
     children: [
+      {path: 'dashboards', children: [
+        {path: 'analytics', loadChildren: () => import('app/modules/admin/dashboards/analytics/analytics.routes')},
+      ]},
       {
         path: 'example',
         loadChildren: () => import('app/modules/admin/example/example.routes'),
