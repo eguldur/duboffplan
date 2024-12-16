@@ -3,12 +3,18 @@ import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, Routes } from '@an
 import { SettingsSablonComponent } from './modules.component';
 import { ModulesService } from './modules.service';
 import { BaseModulesListComponent } from './list/module.component';
+import { DetailsComponent } from './details/details.component';
 
 const basemoduleResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const academyService = inject(ModulesService);
   academyService.getSelects().subscribe();
   academyService.setPathType(route.params.type);
   return academyService.getitems();
+};
+
+const detailsResolver = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const academyService = inject(ModulesService);
+  return academyService.getItemDetailsById(route.params.id);
 };
 
 export default [
@@ -26,6 +32,13 @@ export default [
         component: BaseModulesListComponent,
         resolve: {
           items: basemoduleResolver,
+        },
+      },
+      {
+        path: 'details/:id',
+        component: DetailsComponent,
+        resolve: {
+          item: detailsResolver,
         },
       },
     ],

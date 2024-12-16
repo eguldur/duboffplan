@@ -18,7 +18,7 @@ import { ModulesService } from '../modules.service'
 import { ItemPagination, BaseItem } from '../modules.types'
 import { debounceTime, distinctUntilChanged, from, fromEvent, map, merge, Observable, of, Subject, switchMap, takeUntil } from 'rxjs'
 import { CdkScrollable } from '@angular/cdk/scrolling'
-import { ActivatedRoute, RouterLink } from '@angular/router'
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router'
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav'
 import { SidebarComponent } from './leftsidebar/sidebar.component'
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher'
@@ -44,7 +44,7 @@ import { config } from 'frontend.config'
   styles: [
     `
       .${moduleConfig.type}-${moduleConfig.type2}-grid {
-        grid-template-columns:  25px  minmax(256px, auto)  96px 96px 96px ;
+        grid-template-columns:  25px  minmax(256px, auto)  96px 96px 148px ;
       }
     `,
   ],
@@ -75,7 +75,8 @@ import { config } from 'frontend.config'
     SelectSearchComponent,
     GoogleMap,
     MapMarker,
-    MatDividerModule
+    MatDividerModule,
+    RouterModule
   ],
 })
 export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -97,6 +98,7 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
 
   url: string = config.apiUrl
 
+  
 
 
   flashMessage: 'success' | 'error' | null = null
@@ -227,6 +229,7 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
             }
           });
   }
+
 
 
   findFromAddress(address: string): void {

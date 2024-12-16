@@ -29,6 +29,12 @@ export class DeveloperResolver {
   async developerCountActive(@CurrentUser() _data: any) {
     return this.basemodulesService.getBaseModulesCountActive();
   }
+  
+  @Query((returns) => Developer)
+  developer(@Args('id') id: string, @CurrentUser() _data: any) {
+    return this.basemodulesService.getBaseModuleById(id);
+  }
+
 
   @Query((returns) => [Developer])
   getDeveloperByBasecat(@Args('id') id: string, @CurrentUser() _data: any) {

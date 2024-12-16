@@ -417,6 +417,8 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
       socialMediaAccountsFormArray.clear();
       const phoneNumbersFormArray = this.selectedItemForm.get('phone') as UntypedFormArray;
       phoneNumbersFormArray.clear();
+      const unitFormArray = this.selectedItemForm.get('projectUnits_dld') as UntypedFormArray;
+      unitFormArray.clear();
       this.editMode = false
       this.canCopy = true
       this.selectedItem = product

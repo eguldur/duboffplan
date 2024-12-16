@@ -37,7 +37,43 @@ export const GRAPHQL = {
       }
     }
   `,
-
+  getItemDetailsById: gql`
+    query ($id: String!) {
+      item: developer(id: $id) {
+        id
+        title
+        description
+        title_dld
+        dldId
+        phone {
+          phoneType {
+            id
+            title
+          }
+          phone
+        }
+        socialMediaAccounts {
+          platform {
+            id
+            title
+          }
+          username
+        }
+        phone_dld
+        email
+        website
+        email_dld
+        address
+        address_dld
+        location {
+          coordinates
+        }
+        type
+        isActive
+        logo
+      }
+    }
+  `,
   getPagination: gql`
     query (
       $page: Int!
