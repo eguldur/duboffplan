@@ -3,6 +3,7 @@ import mongoose, { Document } from 'mongoose';
 import { Field, ObjectType } from '@nestjs/graphql';
 import { ReturnPaginationData } from '../../_core/helpers/functions';
 import { BaseSettings } from '../../settings/basesettings/entities/base-setting.entity';
+import { FileObj } from '../../fileserver/entities/fileserver.entity';
 
 
 @ObjectType('GeoPoint')
@@ -112,6 +113,10 @@ export class Developer {
   @Field({ nullable: true })
   @Prop()
   logo: string;
+
+  @Field(() => [FileObj], { nullable: true })
+  @Prop([{ type: FileObj }])
+  files: FileObj[];
 
 }
 

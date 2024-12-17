@@ -5,8 +5,9 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Developer, DeveloperDocument, DeveloperPagination } from './entities/developer.entity';
 import { Model } from 'mongoose';
 import { PubSubEngine } from 'graphql-subscriptions';
-import { FetchPaginationData, regexpSearch, ReturnCauntData } from '../_core/helpers/functions';
+import { FetchPaginationData, regexpSearch, ReturnCauntData, ReturnIsOkData } from '../_core/helpers/functions';
 import { UploadFromBase64Service } from '../_core/services/upload-from-base-64.service';
+import { FileInput } from '../fileserver/entities/fileserver.entity';
 
 @Injectable()
 export class DeveloperService {
@@ -30,6 +31,21 @@ export class DeveloperService {
 
   async getBaseModulesCountActive(): Promise<number> {
     return await this.baseModulModel.countDocuments({ isActive: true });
+  }
+  async addFileToBaseModule(developerId: string, fileInput: FileInput): Promise<ReturnIsOkData> {
+    const developer = await this.baseModulModel.findById(developerId);
+    developer.files.push(fileInput);
+    developer.save();
+
+    return { isOk: 'ok' };
+  }
+
+  async deleteFileFromBaseModule(developerId: string, fileLink: string): Promise<ReturnIsOkData> {
+    const developer = await this.baseModulModel.findById(developerId);
+    developer.files = developer.files.filter((file) => file.fileLink !== fileLink);
+    developer.save();
+
+    return { isOk: 'ok' };
   }
 
   async getBaseModulesPagintaion(args: FetchPaginationData): Promise<DeveloperPagination> {

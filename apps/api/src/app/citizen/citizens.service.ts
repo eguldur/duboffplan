@@ -24,6 +24,10 @@ export class CitizenService {
     return await this.citizenModel.countDocuments({ isActive: true });
   }
 
+  async getCitizenByDeveloper(developerId: string): Promise<CitizenDocument[]> {
+    return await this.citizenModel.find({ developer: developerId, isActive: true }).populate('unvan').exec();
+  }
+
   async getBaseModulesPagintaion(args: FetchPaginationData): Promise<CitizenPagination> {
     const { search, sort, order, page, size, status, filter, type, selectedIds } = args;
     let query = {};

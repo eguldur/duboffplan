@@ -31,8 +31,8 @@ export class CitizenResolver {
   }
 
   @Query(() => [Citizen])
-  citizenSelect(@Args('type') type: string, @CurrentUser() _data: any) {
-    return this.citizenService.getActiveBaseModulesByType(type);
+  async developerContacts(@Args('developerId') developerId: string, @CurrentUser() _data: any) {
+    return this.citizenService.getCitizenByDeveloper(developerId);
   }
 
   @Query(() => CitizenPagination)

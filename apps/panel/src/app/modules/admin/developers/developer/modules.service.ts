@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemPagination, BaseItem } from './modules.types';
 import { BehaviorSubject, filter, map, Observable, of, Subject, switchMap, take, tap, throwError } from 'rxjs';
@@ -6,6 +6,7 @@ import { Apollo } from 'apollo-angular';
 import { GRAPHQL } from './modules.graphql';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { moduleConfig } from './module.config';
+import { config } from 'frontend.config';
 
 @Injectable({providedIn: 'root'})
 export class ModulesService
@@ -19,6 +20,8 @@ export class ModulesService
     public _counts: BehaviorSubject<any | null> = new BehaviorSubject(null);
     public _filter: Subject<boolean> = new Subject();
     public _selects: BehaviorSubject<any | null> = new BehaviorSubject(null);
+    public _contacts: BehaviorSubject<any | null> = new BehaviorSubject(null);
+    public _notes: BehaviorSubject<any | null> = new BehaviorSubject(null);
 
     private _graphql = GRAPHQL;
 
@@ -151,10 +154,19 @@ export class ModulesService
         }).pipe(map(({ data }) => {
 
             this._item.next(data.item);
+            this._contacts.next(data.contacts);
+            this._notes.next(data.notes);
             return data.item;
         }));
     }
-
+    deleteNote(id: string): Observable<any> {
+        return this.apollo.mutate<any>({
+            mutation: this._graphql.deleteNote,
+            variables: { id }
+        }).pipe(map(({ data }) => {
+            return data;
+        }));
+    }
     createitem(): Observable<BaseItem>
     {
         return this.items$.pipe(
@@ -286,5 +298,40 @@ export class ModulesService
         );
     }
 
+    addFileToDeveloper(developerId: string, fileInput: any): Observable<any> {
+        return this.apollo.mutate<any>({
+            mutation: this._graphql.uploadFile,
+            variables: { developerId, fileInput }
+        }).pipe(map(({ data }) => {
+            return data;
+        }));
+    }
+
+    deleteFileFromDeveloper(developerId: string, fileLink: string): Observable<any> {
+        return this.apollo.mutate<any>({
+            mutation: this._graphql.deleteFile,
+            variables: { developerId, fileLink }
+        }).pipe(map(({ data }) => {
+            return data;
+        }));
+    }
+
+    createNote(createNoteInput: any): Observable<any> {
+        return this.apollo.mutate<any>({
+            mutation: this._graphql.createNote,
+            variables: { item: createNoteInput }
+        }).pipe(map(({ data, loading }) => {
+            return data.createNote;
+        }));
+    }
+
+    bulkUpload(event: any): Observable<any> {
+        const formData = new FormData();
+        formData.append('file', event);
+        formData.append('filename', event.name);
+        let headers = new HttpHeaders();
+        headers = headers.append('Accept', '*/*');
+        return this._httpClient.post<any>(config.apiUrl + 'api/fileserver/uploadFileNoSave', formData, { headers });
+      }
     
 }

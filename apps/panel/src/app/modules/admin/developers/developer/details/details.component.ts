@@ -8,6 +8,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { Contact, File } from '../modules.types';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { config } from 'frontend.config';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactInfoComponent } from './dialogs/contactinfo/contactinfo.component';
+import { ShowFileComponent } from './dialogs/showfile/showfile.component';
+import { ToastrService } from 'ngx-toastr';
+import { FuseConfirmationService } from '@fuse/services/confirmation';
+import { FuseConfirmationDialogComponent } from '@fuse/services/confirmation/dialog/dialog.component';
 
 @Component({
     selector: moduleConfig.type + '-' + moduleConfig.type2 + '-details',
@@ -19,8 +36,17 @@ import { GoogleMapsModule } from '@angular/google-maps';
         MatIconModule,
         MatButtonModule,
         MatDividerModule,
+        FormsModule,
         RouterModule,
-        GoogleMapsModule
+        GoogleMapsModule,
+        MatTabsModule,
+        MatCardModule,
+        MatListModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ]   
 })
 export class DetailsComponent implements OnInit, OnDestroy
@@ -40,14 +66,23 @@ export class DetailsComponent implements OnInit, OnDestroy
         position: 7,
       },
     };
+    contacts: Contact[] = [];
+    isLoading: boolean = false;
+    files: any[] = [];
 
+
+    url: string = config.apiUrl;
     private _unsubscribeAll: Subject<any> = new Subject<any>()
+    selectedFiles: any[] = [];
     /**
      * Constructor
      */
     constructor(
         private _modulesService: ModulesService,
-        private _changeDetectorRef: ChangeDetectorRef
+        private _changeDetectorRef: ChangeDetectorRef,
+        private _dialog: MatDialog,
+        private _toastr: ToastrService,
+        private _fuseConfirmationService: FuseConfirmationService 
     )
     {
     }
@@ -55,6 +90,10 @@ export class DetailsComponent implements OnInit, OnDestroy
     ngOnInit(): void {
        this._modulesService.item$.pipe(takeUntil(this._unsubscribeAll)).subscribe((item) => {
         this.item = item;
+
+        if (item.files) {
+          this.files = item.files;
+        }
         if (this.item?.location?.coordinates) {
             const [lng, lat] = this.item.location.coordinates;
             this.center = {
@@ -71,7 +110,14 @@ export class DetailsComponent implements OnInit, OnDestroy
             this.markerPosition = this.center;
           }
         this._changeDetectorRef.detectChanges();
-        console.log(this.item);
+       });
+       this._modulesService._contacts.pipe(takeUntil(this._unsubscribeAll)).subscribe((contacts) => {
+        this.contacts = contacts;
+        this._changeDetectorRef.detectChanges();
+       });
+       this._modulesService._notes.pipe(takeUntil(this._unsubscribeAll)).subscribe((notes) => {
+        this.notes = notes;
+        this._changeDetectorRef.detectChanges();
        });
     }
 
@@ -109,25 +155,25 @@ export class DetailsComponent implements OnInit, OnDestroy
     getSocialMediaIcon(platform: string): string {
       switch(platform.toLowerCase()) {
         case 'instagram':
-          return 'photo_camera';
+          return 'feather:instagram';
         case 'facebook':
-          return 'facebook';
+          return 'feather:facebook';
         case 'twitter':
         case 'x':
         case 'twitter - x':
-          return 'twitter';
+          return 'feather:twitter';
         case 'linkedin':
-          return 'linkedin';
+          return 'feather:linkedin';
         case 'youtube':
-          return 'youtube_activity';
+          return 'feather:youtube';
         case 'tiktok':
-          return 'music_video';
+          return 'feather:tiktok';
         case 'whatsapp':
-          return 'whatsapp';
+          return 'feather:phone';
         case 'telegram':
-          return 'send';
+          return 'feather:mouse-pointer';
         default:
-          return 'public';
+          return 'heroicons_solid:globe-alt';
       }
     }
     
@@ -155,5 +201,237 @@ export class DetailsComponent implements OnInit, OnDestroy
           return 'text-gray-500';
       }
     }
-    
+    getFileIcon(type: string): string {
+      switch (type.toLowerCase()) {
+        case 'pdf': return 'picture_as_pdf';
+        case 'doc':
+        case 'docx': return 'description';
+        default: return 'insert_drive_file';
+      }
+    }
+  
+    getFileIconColor(type: string): string {
+      switch (type.toLowerCase()) {
+        case 'pdf': return 'text-red-500';
+        case 'doc':
+        case 'docx': return 'text-blue-500';
+        default: return 'text-gray-500';
+      }
+    }
+  
+    async onFileSelected(event: any): Promise<void> {
+      this._changeDetectorRef.markForCheck();
+      this.isLoading = true;
+      let i = 0;
+      for (const file of event.target.files) {
+        await this._modulesService.bulkUpload(file).subscribe(
+          (res) => {
+            this.files.push({
+              name: res.name,
+              size: res.size,
+              type: res.type,
+              fileLink: res.fileLink,
+              uploadDate: new Date(),
+            });
+            i++;
+
+            const fileInput = {
+              name: res.name,
+              fileLink: res.fileLink,
+              type: res.type,
+              size: res.size,
+              mimefirst: res.mimefirst,
+              uploadDate: new Date(),
+            };
+
+            this._modulesService.addFileToDeveloper(this.item.id, fileInput).subscribe(
+              (res) => {
+              }, 
+              (err) => {
+              }
+            );
+  
+            this._toastr.success(i + '/' + event.target.files.length + ' Dosya Yüklendi', 'Başarılı', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-center',
+            });
+            if (i === event.target.files.length) {
+              this.isLoading = false;
+            }
+  
+            this._changeDetectorRef.markForCheck();
+          },
+          (err) => {
+            i++;
+  
+            this._toastr.error(i + '. Dosya Yüklenirken Bir Hata Oluştu', 'Hata', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-center',
+            });
+            if (i === event.target.files.length) {
+              this.isLoading = false;
+            }
+            this._changeDetectorRef.markForCheck();
+          },
+        );
+      }
+    }
+  
+    showFile(file): void {
+      const dialogRef = this._dialog.open(ShowFileComponent, {
+        data: {
+          file,
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        if (!result) {
+          return;
+        }
+        return;
+      });
+    }
+
+    notes: any[] = [];
+  
+    newNote: string = '';
+
+    addNote(): void {
+      if (!this.newNote.trim() && this.selectedFiles.length === 0) return;
+
+      const note = {
+        content: this.newNote,
+        files: this.selectedFiles,
+        developer: this.item.id,
+      };
+
+      this._modulesService.createNote(note).subscribe((res) => {
+        this.notes.unshift(res);
+        this.newNote = '';
+        this.selectedFiles = [];
+        this._toastr.success('Not Eklendi', 'Başarılı', {
+          closeButton: true,
+          progressBar: true,
+          positionClass: 'toast-top-center',
+        });
+        this._changeDetectorRef.detectChanges();
+      });
+    }
+
+    deleteNote(note: any): void {
+
+      const dialogRef = this._fuseConfirmationService.open({ 
+        title: 'Not Silme',
+        message: 'Bu notu silmek istediğinizden emin misiniz?',
+        actions: {
+          confirm: {
+            label: 'Sil',
+            color: 'warn',
+          },
+          cancel: {
+            label: 'Vazgeç',
+          }
+        }
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'confirmed') {
+          // Note silme işlemi
+          this.notes = this.notes.filter(n => n.id !== note.id);
+          this._modulesService.deleteNote(note.id).subscribe((res) => {
+            this._toastr.success('Note Silindi', 'Başarılı', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-center',
+            });
+            this._changeDetectorRef.detectChanges();
+          });
+        }
+      });
+    }
+
+   
+
+    async onNoteFileSelected(event: any): Promise<void> {
+      this._changeDetectorRef.markForCheck();
+      this.isLoading = true;
+      let i = 0;
+      for (const file of event.target.files) {
+        await this._modulesService.bulkUpload(file).subscribe(
+          (res) => {
+            this.selectedFiles.push({
+              name: res.name,
+              size: res.size,
+              type: res.type,
+              fileLink: res.fileLink,
+              uploadDate: new Date(),
+            });
+            i++;
+
+            
+  
+            this._toastr.success(i + '/' + event.target.files.length + ' Dosya Yüklendi', 'Başarılı', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-center',
+            });
+            if (i === event.target.files.length) {
+              this.isLoading = false;
+            }
+  
+            this._changeDetectorRef.markForCheck();
+          },
+          (err) => {
+            i++;
+  
+            this._toastr.error(i + '. Dosya Yüklenirken Bir Hata Oluştu', 'Hata', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-center',
+            });
+            if (i === event.target.files.length) {
+              this.isLoading = false;
+            }
+            this._changeDetectorRef.markForCheck();
+          },
+        );
+      }
+    }
+
+    openContactInfoDialog(contact: Contact): void {
+      this._dialog.open(ContactInfoComponent, { data: { contact } });
+    }
+
+    deleteFile(file: any): void {
+     const dialogRef = this._fuseConfirmationService.open({ 
+      title: 'Dosya Silme',
+      message: 'Bu dosyayı silmek istediğinizden emin misiniz?',
+      actions: {
+          confirm: {
+            label: 'Sil',
+            color: 'warn',
+          },
+          cancel: {
+            label: 'Vazgeç',
+          }
+        }
+      
+     });
+
+     dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'confirmed') {
+        this.files = this.files.filter(f => f.fileLink !== file.fileLink);
+        this._modulesService.deleteFileFromDeveloper(this.item.id, file.fileLink).subscribe((res) => {
+          this._toastr.success('Dosya Silindi', 'Başarılı', {
+            closeButton: true,
+            progressBar: true,
+            positionClass: 'toast-top-center',
+          });
+          this._changeDetectorRef.detectChanges();
+        });
+      }
+     });
+    }
 }

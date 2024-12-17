@@ -1,4 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import { FileInput } from '../../fileserver/entities/fileserver.entity';
 
 @InputType('socialMediaAccountInput')
 export class SocialMediaAccountInput {
@@ -51,6 +52,9 @@ export class CreateDeveloperInput {
 
   @Field({ nullable: true })
   email: string;
+
+  @Field(() => [FileInput], { nullable: true })
+  files: FileInput[];
 
   @Field({ nullable: true })
   address: string;

@@ -1,0 +1,62 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+    <div class="text-lg font-medium">Dosya Detayları</div>
+    <button mat-icon-button mat-dialog-close [tabIndex]="-1">
+      <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+    </button>
+  </div>
+  <div class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto">
+    <!-- Compose form -->
+    <div class="w-full min-h-56 mt-2" [class.h-56]="item.type !== 'JPG' && item.type !== 'JPEG' && item.type !== 'PNG' && item.type !== 'GIF'">
+      <div class="flex items-center justify-center border h-full rounded-lg bg-gray-50 dark:bg-card">
+        <ng-container *ngIf="item.type === 'folder'">
+          <mat-icon class="icon-size-24 text-hint" [svgIcon]="'heroicons_outline:folder'"></mat-icon>
+        </ng-container>
+        <ng-container *ngIf="item.type !== 'folder' && item.type !== 'JPG' && item.type !== 'JPEG' && item.type !== 'PNG' && item.type !== 'GIF'">
+          <mat-icon class="icon-size-24 text-hint" [svgIcon]="'heroicons_outline:document'"></mat-icon>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'JPG' || item.type === 'JPEG' || item.type === 'PNG' || item.type === 'GIF'">
+          <img class="max-h-120" [src]="url +item.fileLink" />
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Name & Type -->
+    <div class="flex flex-col items-start mt-8">
+      <div class="text-lg font-medium break-all">{{ item.name }}</div>
+      <div
+        class="mt-1 px-1.5 rounded text-sm font-semibold leading-5 text-white"
+        [class.bg-indigo-600]="item.type === 'folder'"
+        [class.bg-red-600]="item.type === 'PDF' || item.type === 'PPT' || item.type === 'PPTX'"
+        [class.bg-blue-600]="item.type === 'DOC' || item.type === 'DOCX'"
+        [class.bg-green-600]="item.type === 'XLS' || item.type === 'XLSX'"
+        [class.bg-gray-600]="item.type === 'TXT'"
+        [class.bg-amber-600]="item.type === 'JPG' || item.type === 'JPEG' || item.type === 'GIF' || item.type === 'PNG'"
+      >
+        <ng-container *ngIf="item.type === 'folder'"> KLASÖR </ng-container>
+        <ng-container *ngIf="item.type !== 'folder'">
+          {{ item.type.toUpperCase() }}
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Information -->
+    <div class="text-lg font-medium mt-8">Detaylar</div>
+    <div class="flex flex-col mt-4 border-t border-b divide-y font-medium">
+      <div class="flex items-center justify-between py-3">
+        <div class="text-secondary">Boyut</div>
+        <div>
+          <span *ngIf="item.size > 1024 * 1024"> {{ item.size / 1024 / 1024 | number: '1.2-2' }} MB </span>
+          <span *ngIf="item.size <= 1024 * 1024"> {{ item.size / 1024 | number: '1.2-2' }} KB </span>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-4">
+      <a *ngIf="item.type !== 'folder'" [href]="url + item.fileLink" target="_blank" [color]="'primary'" class="w-full" mat-flat-button>
+        <mat-icon [svgIcon]="'heroicons_outline:document-download'"></mat-icon>
+        <span class="ml-2 mr-1">İndir</span>
+      </a>
+    </div>
+  </div>
+</div>

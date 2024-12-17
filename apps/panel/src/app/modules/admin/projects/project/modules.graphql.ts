@@ -195,6 +195,74 @@ export const GRAPHQL = {
       }
     }
   `,
+
+  getItemById: gql`
+    query ($id: String!) {
+      item: project(id: $id) {
+        id
+        title
+        description
+        title_dld
+        dldId
+        units_dld
+        bank_dld
+        bankaccount_dld
+        registedAt_dld
+        startedAt_dld
+        finishedAt_dld
+        area_dld
+        developer {
+          id
+          title
+        }
+        mcompany {
+          id
+          title
+        }
+        phone {
+          phoneType {
+            id
+            title
+          }
+          phone
+        }
+        socialMediaAccounts {
+          platform {
+            id
+            title
+          }
+          username
+        }
+        email
+        address
+        address_sale
+        website
+        type
+        isActive
+        location {
+          type
+          coordinates
+        }
+        location_sale {
+          type
+          coordinates
+        }
+        logo
+        projectUnits_dld {
+          usagetype {
+            id
+            title
+          }
+          propertytype {
+            id
+            title
+          }
+          units
+        }
+      }
+    }
+  `,
+
   createItem: gql`
     mutation {
       newItem: newProject {

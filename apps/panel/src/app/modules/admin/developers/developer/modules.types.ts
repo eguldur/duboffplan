@@ -11,6 +11,7 @@ export interface BaseItem
     phone?: any;
     socialMediaAccounts?: any;
     logo?: any;
+    files?: any;
 }
 
 export interface ItemPagination
@@ -22,3 +23,18 @@ export interface ItemPagination
     startIndex: number;
     endIndex: number;
 }
+export interface Contact {
+    avatar: string;
+    fullName: string;
+    email: string;
+    phone: any;
+    socialMediaAccounts: any;
+    unvan: any;
+  }
+
+export interface File {
+    name: string;
+    type: string;
+    size: string;
+    uploadDate: Date;
+  }

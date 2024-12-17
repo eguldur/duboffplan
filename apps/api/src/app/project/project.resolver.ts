@@ -30,6 +30,13 @@ export class ProjectResolver {
   async projectCountActive(@CurrentUser() _data: any) {
     return this.basemodulesService.getBaseModulesCountActive();
   }
+  
+
+  @Query((returns) => Project)
+  async project(@Args('id') id: string, @CurrentUser() _data: any) {
+    return this.basemodulesService.getBaseModuleById(id);
+  }
+
 
   @Query((returns) => [Project])
   getProjectByBasecat(@Args('id') id: string, @CurrentUser() _data: any) {

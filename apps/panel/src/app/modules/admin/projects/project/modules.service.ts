@@ -143,6 +143,18 @@ export class ModulesService
         );
     }
 
+    getItemDetailsById(id: string): Observable<BaseItem> {
+        return this.apollo.watchQuery<any>({
+            query: this._graphql.getItemById,
+            variables: { id }
+        }).valueChanges.pipe(
+            map(({ data, loading }) => {
+                this._item.next(data.item);
+                return data.item;
+            })
+        );
+    }
+
     createitem(): Observable<BaseItem>
     {
         return this.items$.pipe(

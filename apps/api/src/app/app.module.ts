@@ -21,6 +21,7 @@ import { DeveloperModule } from './developer/developer.module';
 import { McompanyModule } from './mcompany/mcompany.module';
 import { ProjectModule } from './project/project.module';
 import { CitizenModule } from './citizen/citizens.module';
+import { NotesModule } from './notes/notes.module';
 
 const jwt = new JwtService();
 
@@ -80,9 +81,7 @@ const jwt = new JwtService();
           },
         },
         defaults: {
-          from: `"${config.get('MAIL_FROM_NAME')}" <${config.get(
-            'MAIL_FROM_MAIL',
-          )}>`,
+          from: `"${config.get('MAIL_FROM_NAME')}" <${config.get('MAIL_FROM_MAIL')}>`,
         },
         template: {
           dir: join(__dirname, '/templates'),
@@ -104,6 +103,7 @@ const jwt = new JwtService();
     McompanyModule,
     ProjectModule,
     CitizenModule,
+    NotesModule,
   ],
 })
 export class AppModule {}

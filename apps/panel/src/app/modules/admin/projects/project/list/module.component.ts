@@ -44,7 +44,7 @@ import { config } from 'frontend.config'
   styles: [
     `
       .${moduleConfig.type}-${moduleConfig.type2}-grid {
-        grid-template-columns:  25px  minmax(256px, auto)  96px 96px 96px ;
+        grid-template-columns:  25px  minmax(256px, auto)  96px 96px 148px ;
       }
     `,
   ],
@@ -75,7 +75,8 @@ import { config } from 'frontend.config'
     SelectSearchComponent,
     GoogleMap,
     MapMarker,
-    MatDividerModule
+    MatDividerModule,
+    RouterLink
   ],
 })
 export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestroy {

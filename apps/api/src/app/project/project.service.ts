@@ -16,7 +16,7 @@ export class ProjectService {
     @Inject('PUB_SUB') private _pubSub: PubSubEngine,
   ) {}
   async getBaseModuleById(id: any): Promise<ProjectDocument> {
-    return await this.baseModulModel.findById(id).exec();
+    return await this.baseModulModel.findById(id).populate('developer mcompany').exec();
   }
 
   async getActiveBaseModulesByType(type: string): Promise<ProjectDocument[]> {

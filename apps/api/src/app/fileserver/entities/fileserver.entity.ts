@@ -94,6 +94,10 @@ export class FileObj {
 
   @Field({ nullable: true })
   isPrivate?: boolean;
+
+  @Field({ nullable: true })
+  @Prop()
+  uploadDate: Date;
 }
 
 @InputType('FileInput')
@@ -115,4 +119,7 @@ export class FileInput {
 
   @Field({ nullable: true })
   isPrivate?: boolean;
+
+  @Field({ nullable: true })
+  uploadDate: Date;
 }

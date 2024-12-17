@@ -100,6 +100,9 @@
                       </div>
 
                       <div>
+                        <a [routerLink]="['/projects/project/details', item.id]" class="min-w-10 min-h-7 h-7 px-2 mr-2 leading-6 cursor-pointer" mat-stroked-button>
+                          <mat-icon class="icon-size-4" [svgIcon]="'heroicons_solid:eye'"> </mat-icon>
+                        </a>
                         <button
                           class="min-w-10 min-h-7 h-7 px-2 mr-2 leading-6"
                           *ngIf="moduleConfig.copyItem"

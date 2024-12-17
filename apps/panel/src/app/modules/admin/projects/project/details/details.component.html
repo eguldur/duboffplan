@@ -1,0 +1,270 @@
+<div class="flex min-w-0 flex-auto flex-col">
+    <!-- Fixed Header -->
+    <div class="sticky top-0 z-10 bg-white border-b shadow-sm">
+        <div class="flex justify-between items-center px-6 py-4 sm:px-10">
+            <!-- Left Side: Back Button and Project Info -->
+            <div class="flex items-center flex-1 min-w-0">
+                <button 
+                    [routerLink]="['/projects/project']"
+                    class="inline-flex items-center px-4 py-2 mr-6 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-150">
+                    <mat-icon class="mr-2">arrow_back</mat-icon>
+                    <span>Projelere Dön</span>
+                </button>
+
+                <div class="flex items-center min-w-0">
+                    <img [src]="project?.logo" 
+                         class="h-12 w-12 rounded-full object-cover border-2 border-gray-200 flex-shrink-0" 
+                         *ngIf="project?.logo">
+                    <div class="ml-4 min-w-0">
+                        <h1 class="text-xl font-bold truncate">{{project?.title}}</h1>
+                        <div class="flex items-center mt-1 text-sm">
+                            @if(project?.developer) {
+                                <a [routerLink]="['/developers/developer/details', project?.developer?.id]" 
+                                   target="_blank" 
+                                   class="text-blue-600 hover:text-blue-800 truncate">
+                                    {{project?.developer?.title}}
+                                </a>
+                                <span class="mx-2">•</span>
+                            }
+                            @if(project?.mcompany) {
+                                <span class="text-gray-600 truncate">{{project?.mcompany?.title}}</span>
+                                <span class="mx-2">•</span>
+                            }
+                            <span [class]="project?.isActive ? 'text-green-600' : 'text-red-600'"
+                                  class="flex-shrink-0">
+                                {{project?.isActive ? 'Aktif' : 'Pasif'}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container with top padding -->
+    <div class="flex-auto p-6 sm:p-10 pt-4">
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Basic Information -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-semibold mb-6">Proje Detayları</h2>
+                    
+                    <!-- Main Details Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-purple-100 p-2">
+                                <mat-icon class="text-purple-600">category</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Proje DLD</span>
+                                <div class="font-medium text-lg">{{project?.title_dld || '-'}}</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-blue-100 p-2">
+                                <mat-icon class="text-blue-600">badge</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">DLD ID</span>
+                                <div class="font-medium text-lg">{{project?.dldId || '-'}}</div>
+                            </div>
+                        </div>
+
+                       
+
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-green-100 p-2">
+                                <mat-icon class="text-green-600">square_foot</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Alan DLD (m²)</span>
+                                <div class="font-medium text-lg">{{project?.area_dld || '-'}}</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-amber-100 p-2">
+                                <mat-icon class="text-amber-600">account_balance</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Banka DLD</span>
+                                <div class="font-medium text-lg">{{project?.bank_dld || '-'}}</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-indigo-100 p-2">
+                                <mat-icon class="text-indigo-600">credit_card</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Escrow Hesabı DLD</span>
+                                <div class="font-medium text-lg">{{project?.bankaccount_dld || '-'}}</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4 flex items-start space-x-3">
+                            <div class="rounded-full bg-rose-100 p-2">
+                                <mat-icon class="text-rose-600">apartment</mat-icon>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-600">Birimler DLD</span>
+                                <div class="font-medium text-lg">{{project?.units_dld || '-'}} Adet</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Section -->
+                    <div class="border-t pt-6">
+                        <h3 class="text-lg font-medium mb-4">Proje Zaman Çizelgesi</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <mat-icon class="text-gray-600">event_available</mat-icon>
+                                    <span class="text-sm text-gray-600">Kayıt Tarihi</span>
+                                </div>
+                                <div class="font-medium text-lg">
+                                    {{project?.registedAt_dld}}
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <mat-icon class="text-gray-600">play_circle</mat-icon>
+                                    <span class="text-sm text-gray-600">Başlangıç Tarihi</span>
+                                </div>
+                                <div class="font-medium text-lg">
+                                    {{project?.startedAt_dld}}
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <mat-icon class="text-gray-600">flag</mat-icon>
+                                    <span class="text-sm text-gray-600">Bitiş Tarihi</span>
+                                </div>
+                                <div class="font-medium text-lg">
+                                    {{project?.finishedAt_dld}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Açıklama</h2>
+                    <p class="text-gray-700 whitespace-pre-line">{{project?.description}}</p>
+                </div>
+                <!-- Project Units -->
+                
+
+                <!-- Locations with Maps -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Konum Bilgileri</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Project Location -->
+                        <div>
+                            <h3 class="font-medium mb-2">Proje Konumu</h3>
+                            <div class="mb-2">{{project?.address}}</div>
+                            <div class="h-[300px] rounded-lg overflow-hidden">
+                                <google-map
+                                    [center]="center"
+                                    [zoom]="zoom"
+                                    [options]="options"
+                                    height="300px"
+                                    width="100%">
+                                    <map-marker [position]="markerPosition"></map-marker>
+                                </google-map>
+                            </div>
+                        </div>
+                        <!-- Sales Office Location -->
+                        <div>
+                            <h3 class="font-medium mb-2">Satış Ofisi</h3>
+                            <div class="mb-2">{{project?.address_sale}}</div>
+                            <div class="h-[300px] rounded-lg overflow-hidden">
+                                <google-map
+                                    [center]="center_sale"
+                                    [zoom]="zoom"
+                                    [options]="options"
+                                    height="300px"
+                                    width="100%">
+                                    <map-marker [position]="markerPosition_sale"></map-marker>
+                                </google-map>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">İletişim Bilgileri</h2>
+                    
+                    <!-- Phones -->
+                    <div class="mb-6">
+                        <h3 class="font-medium text-gray-600 mb-2">Telefon Numaraları</h3>
+                        <div class="space-y-2">
+                            <div *ngFor="let phone of project?.phone" 
+                                 class="flex items-center p-2 bg-gray-50 rounded">
+                                <mat-icon class="mr-2 text-gray-600">phone</mat-icon>
+                                <div>
+                                    <div class="text-sm text-gray-600">{{phone.phoneType.title}}</div>
+                                    <div class="font-medium">{{phone.phone}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email & Website -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center">
+                            <mat-icon class="mr-2 text-gray-600">email</mat-icon>
+                            <a href="mailto:{{project?.email}}" class="text-blue-600">{{project?.email}}</a>
+                        </div>
+                        <div class="flex items-center">
+                            <mat-icon class="mr-2 text-gray-600">language</mat-icon>
+                            <a [href]="project?.website" target="_blank" class="text-blue-600">{{project?.website}}</a>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div>
+                        <h3 class="font-medium text-gray-600 mb-2">Sosyal Medya</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+                            <a *ngFor="let social of project?.socialMediaAccounts"
+                               [href]="getSocialMediaLink(social)"
+                               target="_blank"
+                               class="flex items-center p-2 bg-gray-50 rounded hover:bg-gray-100">
+                                <mat-icon [class]="getSocialMediaColor(social.platform.title)" 
+                                     class="w-5 h-5 mr-2" 
+                                     [svgIcon]="getSocialMediaIcon(social.platform.title)">
+                                </mat-icon>
+                                <span>{{social.username}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-semibold mb-4">Proje Birimleri</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div *ngFor="let unit of project?.projectUnits_dld" 
+                             class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <div>
+                                <span class="font-medium">{{unit.propertytype.title}}</span>
+                                <span class="text-gray-600"> - {{unit.usagetype.title}}</span>
+                            </div>
+                            <span class="font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                                {{unit.units}} Adet
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

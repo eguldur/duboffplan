@@ -1,0 +1,66 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+  <!-- Header -->
+  <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+    <div class="text-lg font-medium">Contact Information</div>
+    <button mat-icon-button mat-dialog-close [tabIndex]="-1">
+      <mat-icon class="text-current" [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+    </button>
+  </div>
+
+  <div class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto">
+    <!-- Profile Header -->
+    <div class="flex items-center space-x-4 mb-6">
+      @if(contact.avatar) {
+        <img [src]="url + contact.avatar" class="w-20 h-20 rounded-full object-cover" [alt]="contact.fullName">
+      } @else {
+        <mat-icon class="w-20 h-20 p-2 rounded-full text-gray-500 text-2xl border border-gray-500 mr-3" [svgIcon]="'heroicons_outline:user'"></mat-icon>
+      }
+      <div>
+        <h2 class="text-xl font-semibold">{{contact.fullName}}</h2>
+        <p class="text-gray-600">{{contact.unvan.title}}</p>
+      </div>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="space-y-6">
+      <!-- Basic Info -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-medium">Basic Information</h3>
+        <div class="flex items-center space-x-2">
+          <mat-icon class="text-gray-500">email</mat-icon>
+          <a [href]="'mailto:' + contact.email" class="text-primary hover:underline">{{contact.email}}</a>
+        </div>
+      </div>
+
+      <!-- Phone Numbers -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-medium">Phone Numbers</h3>
+        <div class="space-y-2">
+          <div *ngFor="let phoneItem of contact.phone" class="flex items-center space-x-2">
+            <mat-icon class="text-gray-500">phone</mat-icon>
+            <div>
+              <p class="font-medium">{{phoneItem.phoneType.title}}</p>
+              <a [href]="'tel:' + phoneItem.phone" class="text-primary hover:underline">{{phoneItem.phone}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="space-y-2">
+        <h3 class="text-lg font-medium">Social Media</h3>
+        <div class="space-y-2">
+          <div *ngFor="let social of contact.socialMediaAccounts" class="flex items-center space-x-2">
+            <mat-icon class="text-gray-500">public</mat-icon>
+            <div>
+              <p class="font-medium">{{social.platform.title}}</p>
+              <a [href]="getSocialMediaLink(social)" target="_blank" class="text-primary hover:underline">
+                {{social.username}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

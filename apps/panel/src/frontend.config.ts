@@ -1,6 +1,6 @@
 export const config = {
-  apiUrl: 'http://localhost:3000/',
-  wsUrl: 'http://localhost:3000/',
+  apiUrl: 'https://offplanapi.vrsis.net/',
+  wsUrl: 'wss://offplanapi.vrsis.net/',
   siteKey: '0x4AAAAAAAeqwbWTF4HdKbZK',
   projectTitle: 'Dubai Offplan Projects',
   projectDescription: 'Dubai Offplan Projects',

@@ -5,11 +5,12 @@ import { Developer, DeveloperPagination, Phone, SocialMediaAccount } from './ent
 import { CreateDeveloperInput } from './dto/create-developer.input';
 import { UpdateDeveloperInput } from './dto/update-developer.input';
 import { JwtAuthGuard } from '../auth/jwt/jwt-auth.guard';
-import { FetchPaginationData, ReturnCauntData } from '../_core/helpers/functions';
+import { FetchPaginationData, ReturnCauntData, ReturnIsOkData } from '../_core/helpers/functions';
 import { CurrentUser } from '../auth/jwt/current-user.decorators';
 import { PubSubEngine } from 'graphql-subscriptions';
 import { BaseSettings } from '../settings/basesettings/entities/base-setting.entity';
 import { BaseSettingsService } from '../settings/basesettings/base-settings.service';
+import { FileInput } from '../fileserver/entities/fileserver.entity';
 
 @UseGuards(JwtAuthGuard)
 @Resolver(() => Developer)
@@ -35,6 +36,15 @@ export class DeveloperResolver {
     return this.basemodulesService.getBaseModuleById(id);
   }
 
+  @Mutation(() => ReturnIsOkData)
+  async addFileToDeveloper(@Args('developerId') developerId: string, @Args('fileInput') fileInput: FileInput, @CurrentUser() _data: any) {
+    return this.basemodulesService.addFileToBaseModule(developerId, fileInput);
+  }
+
+  @Mutation(() => ReturnIsOkData)
+  async deleteFileFromDeveloper(@Args('developerId') developerId: string, @Args('fileLink') fileLink: string, @CurrentUser() _data: any) {
+    return this.basemodulesService.deleteFileFromBaseModule(developerId, fileLink);
+  }
 
   @Query((returns) => [Developer])
   getDeveloperByBasecat(@Args('id') id: string, @CurrentUser() _data: any) {

@@ -71,6 +71,54 @@ export const GRAPHQL = {
         type
         isActive
         logo
+        files {
+          name
+          fileLink
+          type
+          size
+          mimefirst
+          uploadDate
+        }
+      }
+      contacts: developerContacts(developerId: $id) {
+        fullName
+        email
+        phone {
+          phoneType {
+            id
+            title
+          }
+          phone
+        }
+        socialMediaAccounts {
+          platform {
+            id
+            title
+          }
+          username
+        }
+        unvan {
+          id
+          title
+        }
+        avatar
+      }
+      notes: developerNotes(developerId: $id) {
+        id
+        content
+        createdAt
+        user {
+          id
+          firstname
+          lastname
+        }
+        files {
+          name
+          fileLink
+          type
+          size
+          mimefirst
+        }
       }
     }
   `,
@@ -145,15 +193,59 @@ export const GRAPHQL = {
       }
     }
   `,
+
+  createNote: gql`
+    mutation ($item: createNoteInput!) {
+      createNote(createNoteInput: $item) {
+        id
+        content
+        createdAt
+        user {
+          id
+          firstname
+          lastname
+        }
+        files {
+          name
+          fileLink
+          type
+          size
+          mimefirst
+        }
+      }
+    }
+  `,
   getSelects: gql`
     query {
-       phonetypes: baseSettingsSelect(type: "phonetypes") {
+      phonetypes: baseSettingsSelect(type: "phonetypes") {
         id
         title
       }
       socialmediaplatforms: baseSettingsSelect(type: "socialmediaplatforms") {
         id
         title
+      }
+    }
+  `,
+  uploadFile: gql`
+    mutation ($developerId: String!, $fileInput: FileInput!) {
+      addFileToDeveloper(developerId: $developerId, fileInput: $fileInput) {
+        isOk
+      }
+    }
+  `,
+  deleteFile: gql`
+    mutation ($developerId: String!, $fileLink: String!) {
+      deleteFileFromDeveloper(developerId: $developerId, fileLink: $fileLink) {
+        isOk
+      }
+    }
+  `,
+
+  deleteNote: gql`
+    mutation ($id: String!) {
+      deleteNote(id: $id) {
+        isOk
       }
     }
   `,
