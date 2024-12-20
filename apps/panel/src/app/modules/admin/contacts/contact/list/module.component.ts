@@ -266,8 +266,8 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
       email: [null],
       phone: this._formBuilder.array([]),
       socialMediaAccounts: this._formBuilder.array([]),
-      developer: [null],
-      unvan: [null],
+      developer: [null, Validators.required],
+      unvan: [null, Validators.required],
       type: [null],
       isActive: [null],
       avatar: [null],
@@ -394,8 +394,8 @@ export class BaseModulesListComponent implements OnInit, AfterViewInit, OnDestro
       this.canCopy = true;
       this.selectedItem = product;
       this.selectedItemForm.patchValue(product);
-      this.selectedItemForm.controls['unvan'].setValue(product.unvan.id);
-      this.selectedItemForm.controls['developer'].setValue(product.developer.map((developer) => developer.id));
+      this.selectedItemForm.controls['unvan'].setValue(product.unvan?.id);
+      this.selectedItemForm.controls['developer'].setValue(product.developer?.map((developer) => developer.id));
 
       const phoneNumbersFormGroups = [];
 

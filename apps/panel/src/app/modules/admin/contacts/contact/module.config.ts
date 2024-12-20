@@ -5,7 +5,7 @@ export const moduleConfig = {
     addNew: true,
     addMulti: false,
     updateMulti: false,
-    copyItem: true,
+    copyItem: false,
     searchBox: true,
     sideBarOpen: true,
     exportItems: false,

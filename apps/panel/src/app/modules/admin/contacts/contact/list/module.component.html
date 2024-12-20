@@ -90,14 +90,14 @@
                         {{ item.unvan? item.unvan?.title : '-' }}
                       </div>
                       <div class="truncate">
-                        {{ item.developer? item.developer[0]?.title : '-' }}
+                        {{ item.developer? item?.developer[0]?.title : '-' }}
                       </div>
                      
                       <div class="truncate">
                         {{ item.email }}
                       </div>
                       <div class="truncate">
-                        {{ item.phone ? item.phone[0].phone : '-' }}
+                        {{ item.phone ? item.phone[0]?.phone : '-' }}
                       </div>
                      
 
