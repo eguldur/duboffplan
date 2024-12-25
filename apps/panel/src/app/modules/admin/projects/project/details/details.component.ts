@@ -63,7 +63,6 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy
 
     ngOnInit(): void {
         this._modulesService.item$.pipe(takeUntil(this._unsubscribeAll)).subscribe((data: any) => {
-            console.log(data);
             this.project = data;
             this.markerPosition = { lat: data.location.coordinates[1], lng: data.location.coordinates[0] };
             this.center = { lat: data.location.coordinates[1], lng: data.location.coordinates[0] };

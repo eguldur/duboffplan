@@ -12,8 +12,8 @@
                 </button>
 
                 <div class="flex items-center min-w-0">
-                    <img [src]="project?.logo" 
-                         class="h-12 w-12 rounded-full object-cover border-2 border-gray-200 flex-shrink-0" 
+                    <img [src]="url + project?.logo" 
+                         class="h-12 w-24 rounded-full object-cover border-2 border-gray-200 flex-shrink-0" 
                          *ngIf="project?.logo">
                     <div class="ml-4 min-w-0">
                         <h1 class="text-xl font-bold truncate">{{project?.title}}</h1>
